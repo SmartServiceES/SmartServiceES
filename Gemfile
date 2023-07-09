@@ -70,3 +70,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :actions do
+  gem 'pg'
+  gem 'activerecord-postgresql-adapter'
+end
