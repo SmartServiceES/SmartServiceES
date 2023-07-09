@@ -13,15 +13,15 @@ development:
   <<: *default
   database: db/development.sqlite3
 
-  actions:
-    adapter: postgresql
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
-    database: <%= ENV.fetch('PG_DATABASE', 'postgres') %>
-    host: <%= ENV.fetch('PG_HOST',  'localhost') %>
-    username: <%= ENV.fetch('PG_USER', 'postgres') %>
-    password: <%= ENV.fetch('PG_PASSWORD', 'password') %>
-    port: <%= ENV.fetch('PG_PORT', 5432) %>
+actions:
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  database: <%= ENV.fetch('PG_DATABASE', 'postgres') %>
+  host: <%= ENV.fetch('PG_HOST',  'localhost') %>
+  username: <%= ENV.fetch('PG_USER', 'postgres') %>
+  password: <%= ENV.fetch('PG_PASSWORD', 'password') %>
+  port: <%= ENV.fetch('PG_PORT', 5432) %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
