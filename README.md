@@ -14,6 +14,7 @@ Projeto desenvolvido como 2ª VA da disciplina de Engenharia de Software da UFAP
 *   [Site no Railway](https://smartservicees-production.up.railway.app/)
 
 ## 🚩 Qualidade do código
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a1e0a144c8c4933a83ad4bb4811b315)](https://app.codacy.com/gh/SmartServiceES/SmartServiceES?utm_source=github.com&utm_medium=referral&utm_content=SmartServiceES/SmartServiceES&utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1e999b46e23a4814a576bc54496667c9)](https://app.codacy.com?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## 🛠️ Tecnologias utilizadas
