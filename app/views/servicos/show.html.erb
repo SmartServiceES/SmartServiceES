@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @servico %>
+
+<div>
+  <%= link_to "Edit this servico", edit_servico_path(@servico) %> |
+  <%= link_to "Back to servicos", servicos_path %>
+
+  <%= button_to "Destroy this servico", @servico, method: :delete %>
+</div>
