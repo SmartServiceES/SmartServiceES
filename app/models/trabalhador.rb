@@ -6,5 +6,5 @@ class Trabalhador < ApplicationRecord
   validates :telefone, presence: {message: 'para contato obrigatório'}, length: {is: 11, message: 'precisa ter 11 dígitos'}
   validates :profissao, presence: {message: 'Campo obrigatório'}, length: {maximum: 40}
   validates :senha, presence: {message: 'obrigatória'}, length: {minumum: 5, maximum: 20}, uniqueness: true
-
+  validates_date :data_nascimento, before: -> { 18.years.ago }, before_message: "você deve ser maior de 18 para se cadastrar."
 end

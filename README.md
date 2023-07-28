@@ -11,15 +11,15 @@ O sistema visa conectar trabalhadores independentes com potenciais clientes, dev
 
 Projeto desenvolvido como 2ª VA da disciplina de Engenharia de Software da UFAPE, ministrada pelo professor Dr. [Rodrigo Andrade](https://github.com/rcaa), no periodo letivo de 2023.1
 
-*   [Site no Railway](https://smartservicees-production.up.railway.app/)
+*   [Site no RENDER](https://smartservice.onrender.com/)
 
 ## 🚩 Qualidade do código
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1e999b46e23a4814a576bc54496667c9)](https://app.codacy.com/gh/SmartServiceES/SmartServiceES/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## 🛠️ Tecnologias utilizadas
 1. [Ruby](https://www.ruby-lang.org/pt/) 
-   - Versão 3.1.1
+   1. Versão 3.1.1
 2. [Rails](https://rubyonrails.org)
-   - Versão 7.0.2.2
-3. [Railway](https://railway.app)
+   1. Versão 7.0.2.2
+3. [Render](https://render.com)
 4. [Codacy](https://app.codacy.com/)
