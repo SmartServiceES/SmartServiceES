@@ -109,3 +109,30 @@ Given('Eu estou em registrar trabalhadores') do
     expect(page).to have_content(string)
   end
 
+  #Email invalido
+  Given('Eu tenho no sistema um trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
+    data_nascimento = Date.parse(data_nascimento_str)
+  
+    Trabalhador.create!(
+      nome_completo: nome,
+      telefone: telefone,
+      data_nascimento: data_nascimento,
+      email: email,
+      senha: senha,
+      profissao: profissao
+    )
+  end
+  
+  Given('Eu estou na pagina de edicao desse trabalhador com o nome {string}') do |nome|
+    trabalhador = Trabalhador.find_by(nome_completo: nome)
+    visit edit_trabalhador_path(trabalhador)
+  end
+  
+  When('Eu atualizo o e-mail para {string}') do |novo_email|
+    fill_in "trabalhador[email]", with: novo_email
+  end
+  
+  Then('Eu vejo uma mensagem de erro {string}') do |string|
+    expect(page).to have_content(string)
+  end
+  

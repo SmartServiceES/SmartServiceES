@@ -28,4 +28,9 @@ Scenario: Tentativa de cadastro com número de telefone muito curto
   And Eu preciono 'Create Trabalhador'
   Then Eu vejo a mensagem de erro "Telefone precisa ter 11 dígitos"
 
-
+Scenario: Tentativa de edição com e-mail inválido
+  Given Eu tenho no sistema um trabalhador com o nome "Joao Henrique", telefone "98765432132", data de nascimento "1990-01-01", email "joao@example.com", senha "123456" e profissao "Engenheiro"
+  And Eu estou na pagina de edicao desse trabalhador com o nome "Joao Henrique"
+  When Eu atualizo o e-mail para "emailinvalido"
+  And Eu aperto em 'Update Trabalhador'
+  Then Eu vejo uma mensagem de erro "Email is invalid"
