@@ -5,7 +5,7 @@ Given('Eu estou na pagina de registrar trabalhadores') do
     expect(current_path).to eq('/trabalhadors/new')
   end
   
-  When('Eu preencho o nome {string}, o telefone {string}, a data de nascimento {string}, o endereco {string}, o email {string}, a senha {string} e a profissao {string}') do |nome, telefone, data_nascimento_str, endereco, email, senha, profissao|
+  When('Eu preencho nome {string}, o telefone {string}, a data de nascimento {string}, o email {string}, a senha {string} e a profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
     data_nascimento = Date.parse(data_nascimento_str)
   
     fill_in "trabalhador[nome_completo]",	with: nome
@@ -26,7 +26,7 @@ Given('Eu estou na pagina de registrar trabalhadores') do
 
   #EDITAR
 
-Given('Eu tenho um trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, endereco {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, endereco, email, senha, profissao|
+Given('Eu tenho um trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
     data_nascimento = Date.parse(data_nascimento_str)
   
     Trabalhador.create!(
@@ -58,7 +58,7 @@ Given('Eu tenho um trabalhador com o nome {string}, telefone {string}, data de n
   end
   
   #DELETAR
-Given('Eu tenho um trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
+Given('Eu tenho um trabalhador com nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
     data_nascimento = Date.parse(data_nascimento_str)
   
     Trabalhador.create!(
@@ -83,4 +83,29 @@ Given('Eu tenho um trabalhador com o nome {string}, telefone {string}, data de n
   Then('Eu vejo a mensagem de sucesso {string}') do |string|
     expect(page).to have_content(string)
   end
+
+#Telefone pequeno
+Given('Eu estou em registrar trabalhadores') do
+    visit '/trabalhadors/new'
+    expect(current_path).to eq('/trabalhadors/new')
+  end
   
+  When('Eu preencho o nome {string}, o telefone {string}, a data de nascimento {string}, o email {string}, a senha {string} e a profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
+    data_nascimento = Date.parse(data_nascimento_str)
+  
+    fill_in "trabalhador[nome_completo]", with: nome
+    fill_in "trabalhador[telefone]", with: telefone
+    fill_in "trabalhador[data_nascimento]", with: data_nascimento.strftime('%Y-%m-%d')
+    fill_in "trabalhador[email]", with: email
+    fill_in "trabalhador[senha]", with: senha
+    fill_in "trabalhador[profissao]", with: profissao
+  end
+  
+  When('Eu preciono {string}') do |string|
+    click_button "Create Trabalhador"
+  end
+  
+  Then('Eu vejo a mensagem de erro {string}') do |string|
+    expect(page).to have_content(string)
+  end
+
