@@ -2,12 +2,11 @@
 
 Given('Eu estou na pagina de registrar trabalhadores') do
     visit '/trabalhadors/new'
-    expect(current_path).to eq('/trabalhadors/new')
-  end
+    expect(page).to have_current_path('/trabalhadors/new')
+end
   
   When('Eu preencho nome {string}, o telefone {string}, a data de nascimento {string}, o email {string}, a senha {string} e a profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
     data_nascimento = Date.parse(data_nascimento_str)
-  
     fill_in "trabalhador[nome_completo]",	with: nome
     fill_in "trabalhador[telefone]",	with: telefone
     fill_in "trabalhador[data_nascimento]",	with: data_nascimento.strftime('%Y-%m-%d')
@@ -16,17 +15,17 @@ Given('Eu estou na pagina de registrar trabalhadores') do
     fill_in "trabalhador[profissao]",	with: profissao
   end
   
-  When('Eu clico em {string}') do |string|
+  When('Eu clico em Create trabalhador') do
     click_button "Create Trabalhador"
   end
   
-  Then('Eu vejo a mensagem de criado com sucesso {string}') do |string|
-    expect(page).to have_content(string)
+  Then('Eu vejo a mensagem de criado com sucesso {string}') do |mensagem|
+    expect(page).to have_content(mensagem)
   end
 
   #EDITAR
 
-Given('Eu tenho um trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
+Given('O trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string} existe') do |nome, telefone, data_nascimento_str, email, senha, profissao|
     data_nascimento = Date.parse(data_nascimento_str)
   
     Trabalhador.create!(
@@ -49,16 +48,16 @@ Given('Eu tenho um trabalhador com o nome {string}, telefone {string}, data de n
     fill_in "trabalhador[profissao]", with: nova_profissao
   end
   
-  When('Eu aperto em {string}') do |string|
+  When('Eu clico em Update trabalhador') do
     click_button "Update Trabalhador"
   end
   
-  Then('Eu vejo a mensagem de editado com sucesso {string}') do |string|
-    expect(page).to have_content(string)
+  Then('Eu vejo a mensagem de editado com sucesso {string}') do |mensagem|
+    expect(page).to have_content(mensagem)
   end
   
   #DELETAR
-Given('Eu tenho um trabalhador com nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
+Given('O trabalhador com nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string} existe') do |nome, telefone, data_nascimento_str, email, senha, profissao|
     data_nascimento = Date.parse(data_nascimento_str)
   
     Trabalhador.create!(
@@ -76,7 +75,7 @@ Given('Eu tenho um trabalhador com nome {string}, telefone {string}, data de nas
     visit trabalhador_path(trabalhador)
   end
 
-  When('Eu seleciono a opcao {string}') do |string|
+  When('Eu clico em Destroy this trabalhador') do
     click_on "Destroy this trabalhador"
   end
 
@@ -101,12 +100,12 @@ Given('Eu estou em registrar trabalhadores') do
     fill_in "trabalhador[profissao]", with: profissao
   end
   
-  When('Eu preciono {string}') do |string|
+  When('Eu clico em Create Trabalhador') do
     click_button "Create Trabalhador"
   end
   
-  Then('Eu vejo a mensagem de erro {string}') do |string|
-    expect(page).to have_content(string)
+  Then('Eu vejo a mensagem de erro {string}') do |mensagem|
+    expect(page).to have_content(mensagem)
   end
 
   #Email invalido
@@ -131,8 +130,12 @@ Given('Eu estou em registrar trabalhadores') do
   When('Eu atualizo o e-mail para {string}') do |novo_email|
     fill_in "trabalhador[email]", with: novo_email
   end
-  
-  Then('Eu vejo uma mensagem de erro {string}') do |string|
-    expect(page).to have_content(string)
+
+  When('Eu clico em Update Trabalhador') do
+    click_button "Update Trabalhador"
+  end
+
+  Then('Eu vejo uma mensagem de erro {string}') do |mensagem|
+    expect(page).to have_content(mensagem)
   end
   
