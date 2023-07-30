@@ -21,7 +21,10 @@ class ServicosController < ApplicationController
 
   # POST /servicos or /servicos.json
   def create
+    @trabalhador = Trabalhador.find(servico_params[:trabalhador_id])
     @servico = Servico.new(servico_params)
+
+    @trabalhador.servicos << @servico
 
     respond_to do |format|
       if @servico.save
@@ -65,6 +68,6 @@ class ServicosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def servico_params
-      params.require(:servico).permit(:nome, :descricao, :valor, :categoria, :horario_inicio, :horario_termino)
+      params.require(:servico).permit(:nome, :descricao, :valor, :categoria, :horario_inicio, :horario_termino, :trabalhador_id)
     end
 end

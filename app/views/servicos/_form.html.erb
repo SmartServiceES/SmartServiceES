@@ -42,6 +42,11 @@
   </div>
 
   <div>
+    <%= form.label :trabalhador_id %>
+    <%= form.collection_select(:trabalhador_id, Trabalhador.all, :id, :nome_completo, {:selected => @servico.trabalhador_id}) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

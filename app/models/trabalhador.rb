@@ -1,4 +1,5 @@
 class Trabalhador < ApplicationRecord
+  has_many :servicos, dependent: :destroy
 
   validates :nome_completo, presence: {message: 'obrigatório (minimo 8)'}, format: {with: /\A[a-zA-z ]+\z/}, length: {minimum: 8, maximum: 80}
   validates :data_nascimento, presence: true
