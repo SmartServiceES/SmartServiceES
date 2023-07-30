@@ -1,3 +1,71 @@
-<h1>Pagina Principal</h1>
-<h2><%= link_to "Trabalhadores", trabalhadors_path %></h2>
-<h2><%= link_to "Serviços", servicos_path %></h2>
+<head>
+  <style>
+      footer.fixar-rodape{
+          border-top-style: inset;
+          bottom: 0px;
+          left: 0;
+          height: 50px;
+          position: fixed;
+          width: 100%;
+          text-align: center;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+      }
+      nav ul li p {
+          margin-left: 1rem;
+      }
+      header {
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+          position: fixed;
+          width: 100%;
+          height: 100px;
+          top: 0;
+          margin-left: -10px;
+      }
+
+      header, nav ul {
+          display: flex;
+          justify-content: space-around;
+          padding: 1rem;
+      }
+
+      p2{
+          position:absolute;
+          left: 700px;
+          width: 820px;
+          height: 800px;
+          top:450px;
+          text-align: center;
+          font-size: 40px;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+      }
+      p1{
+          position:absolute;
+          top: 450px;
+          left: 650px;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+          font-size: 40px;
+          text-align: right;
+      }
+      h1{
+
+          text-align: center;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+      }
+  </style>
+</head>
+
+<body>
+<h1>Smart Service - Home</h1>
+<header>
+  <nav>
+    <ul>
+
+    </ul>
+  </nav>
+</header>
+<p2><%= link_to "Serviços", servicos_path %></p2>
+<p1><%= link_to "Trabalhadores", trabalhadors_path %></p1>
+<footer class="fixar-rodape">
+  <p>©<a href="https://github.com/SmartServiceES/SmartServiceES"> Smart Service ES</a></p>
+</footer>
+</body>
