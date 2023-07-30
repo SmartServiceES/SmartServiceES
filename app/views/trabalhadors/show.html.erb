@@ -3,6 +3,32 @@
 <%= render @trabalhador %>
 
 <div>
+  <strong>-- serviços --</strong>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th>Categoria</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @trabalhador.servicos.each do |servicos| %>
+      <tr>
+        <td><%= servicos.nome %></td>
+        <td><%= servicos.descricao %></td>
+        <td><%= servicos.valor %></td>
+        <td><%= servicos.categoria %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
   <%= link_to "Edit this trabalhador", edit_trabalhador_path(@trabalhador) %> |
   <%= link_to "Back to trabalhadors", trabalhadors_path %>
 
