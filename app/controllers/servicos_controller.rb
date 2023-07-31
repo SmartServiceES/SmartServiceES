@@ -3,7 +3,8 @@ class ServicosController < ApplicationController
 
   # GET /servicos or /servicos.json
   def index
-    @servicos = Servico.all
+    @q = Servico.ransack(params[:q])
+    @servicos = @q.result(distinct: true).all
   end
 
   # GET /servicos/1 or /servicos/1.json
@@ -62,12 +63,12 @@ class ServicosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_servico
-      @servico = Servico.find(params[:id])
-    end
+  def set_servico
+    @servico = Servico.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def servico_params
-      params.require(:servico).permit(:nome, :descricao, :valor, :categoria, :horario_inicio, :horario_termino, :trabalhador_id)
-    end
+  def servico_params
+    params.require(:servico).permit(:nome, :descricao, :valor, :categoria, :horario_inicio, :horario_termino, :trabalhador_id)
+  end
 end
