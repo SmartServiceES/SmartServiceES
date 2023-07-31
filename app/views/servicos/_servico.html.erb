@@ -1,4 +1,14 @@
+<head>
+  <style>
+    p, h1{
+        font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    }
+  </style>
+</head>
 <div id="<%= dom_id servico %>">
+  <h1>
+    Serviços Ofertados:
+  </h1>
   <p>
     <strong>Nome:</strong>
     <%= servico.nome %>
@@ -27,6 +37,11 @@
   <p>
     <strong>Horario termino:</strong>
     <%= servico.horario_termino %>
+  </p>
+
+  <p>
+    <strong>Trabalhador:</strong>
+    <%= servico.trabalhador.nome_completo %>
   </p>
 
 </div>

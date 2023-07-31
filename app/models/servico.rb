@@ -1,6 +1,6 @@
 class Servico < ApplicationRecord
   belongs_to :trabalhador
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     ["categoria", "created_at", "descricao", "horario_inicio", "horario_termino", "id", "nome", "trabalhador_id", "updated_at", "valor"]
   end
   validates :nome, presence: true, length: {in: 3..30}, format: {with: /\A[a-zA-Z ]+\z/, message: "Use apenas letras"}

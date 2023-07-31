@@ -17,9 +17,9 @@ Projeto desenvolvido como 2ª VA da disciplina de Engenharia de Software da UFAP
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1e999b46e23a4814a576bc54496667c9)](https://app.codacy.com/gh/SmartServiceES/SmartServiceES/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## 🛠️ Tecnologias utilizadas
-1. [Ruby](https://www.ruby-lang.org/pt/) 
-   1. Versão 3.1.1
-2. [Rails](https://rubyonrails.org)
-   1. Versão 7.0.2.2
-3. [Render](https://render.com)
-4. [Codacy](https://app.codacy.com/)
+### [Ruby](https://www.ruby-lang.org/pt/) 
+* Versão 3.1.1
+### [Rails](https://rubyonrails.org)
+* Versão 7.0.2.2
+### [Render](https://render.com)
+### [Codacy](https://app.codacy.com/)
