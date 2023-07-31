@@ -18,8 +18,8 @@ Projeto desenvolvido como 2ª VA da disciplina de Engenharia de Software da UFAP
 
 ## 🛠️ Tecnologias utilizadas
 ### [Ruby](https://www.ruby-lang.org/pt/) 
-   * Versão 3.1.1
+* Versão 3.1.1
 ### [Rails](https://rubyonrails.org)
-   * Versão 7.0.2.2
+* Versão 7.0.2.2
 ### [Render](https://render.com)
 ### [Codacy](https://app.codacy.com/)
