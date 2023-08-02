@@ -1,29 +1,39 @@
-Feature: Busca de serviço
+Feature: Gerenciamento de servico
+
   As a Usuario do sistema
-  I want to buscar os servicos disponiveis por categoria, encanador, eletricista ou pedreiro
-  So that eu visualize os servicos disponiveis
+  I want to registrar, editar e remover um servico
+  So that eu mantenha o portfolio de servicos atualizado
 
-  Scenario: Buscar serviços de pedreiro
-    Given que existem serviços cadastrados na categoria "pedreiro"
-    When eu procuro pelos serviços da categoria "pedreiro"
-    Then eu visualizo uma lista de serviços disponíveis de pedreiro
+  Scenario: cadastrar servico valido
+    Given Eu estou na pagina de registrar servicos
+    And O trabalhador com nome_completo "Joao Carlos", telefone "87090900000", data_de_nascimento "07/05/1994", email "joaocarlos@gmail.com", senha "12345", profissao "Mestre de obras" existe
+    When Agora preencho os campos de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "20:20" Horario termino "21:30"
+    And Eu clico em Create Servico
+    Then Vejo "Servico was successfully created."
 
-  Scenario: Buscar serviços de eletricista
-    Given que contem serviços cadastrados na categoria "eletricista"
-    When procuro serviços nesta categoria "eletricista"
-    Then eu visualizo uma lista de serviços disponíveis de eletricista
+  Scenario: cadastrar servico com nome vazio
+    Given Eu estou na pagina de registrar servicos
+    And O trabalhador com nome_completo "Joao Carlos", telefone "87090900000", data_de_nascimento "07/05/1994", email "joaocarlos@gmail.com", senha "12345", profissao "Mestre de obras" existe
+    When Agora preencho os campos de Nome "" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "20:20" Horario termino "21:30"
+    And Eu clico em Create Servico
+    Then Vejo a mensagem "3 errors prohibited this servico from being saved" que o servico não foi criado
 
-  Scenario: Buscar serviços de encanador
-    Given que tem serviços cadastrados na categoria "encanador"
-    When eu busco por um tipo de serviço da categoria "encanador"
-    Then eu visualizo uma lista de serviços disponíveis de encanador
+  Scenario: cadastrar servico com valor vazio
+    Given Eu estou na pagina de registrar servicos
+    And O trabalhador com nome_completo "Joao Carlos", telefone "87090900000", data_de_nascimento "07/05/1994", email "joaocarlos@gmail.com", senha "12345", profissao "Mestre de obras" existe
+    When Agora preencho os campos de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "" Categoria "Faculdade" Horario inicio "20:20" Horario termino "21:30"
+    And Eu clico em Create Servico
+    Then Vejo a mensagem "1 error prohibited this servico from being saved" que o servico não foi criado
 
-  Scenario: Buscar serviços em uma categoria inexistente
-    Given que não existem serviços cadastrados na categoria "marceneiro"
-    When eu varro pelos serviços da categoria "marceneiro"
-    Then eu visualizo uma mensagem informando que não há serviços disponíveis nesta categoria
+  Scenario: remover servico valido
+    Given Eu estou na pagina de servicos
+    And O trabalhador com nome_completo "Joao Carlos", telefone "87090900000", data_de_nascimento "07/05/1994", email "joaocarlos@gmail.com", senha "12345", profissao "Mestre de obras" existe
+    And O servico de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "20:20" Horario termino "21:30" existe
+    When Eu clico em servico de nome "Trabalho"
+    And Eu clico em Destroy this servico
+    Then Vejo "Servico was successfully destroyed."
 
-  Scenario: Buscar serviços em várias categorias
-    Given que existem serviços cadastrados nas categorias "encanador,eletricista,pedreiro"
-    When eu vasculo pelos serviços das categorias "encanador,eletricista,pedreiro"
-    Then eu visualizo uma lista de serviços disponíveis para cada categoria
+  Scenario: remover servico inexistente
+    Given Eu estou na pagina de servicos
+    When Agora na pagina de servico não encontrou servico de Nome "Trabalho"
+    Then Continuo na pagina de servico
