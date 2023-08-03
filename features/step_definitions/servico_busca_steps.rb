@@ -3,15 +3,59 @@ Given('eu estou na pagina de cadastrar um novo servico') do
   expect(page).to have_current_path('/servicos/new')
 end
 
-Given('eu preencho o nome do serviço {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome,
+Given('eu preencho o nome do servico {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome,
   descricao, valor, categoria, horario_inicio, horario_termino|
 
   visit '/trabalhadors/new'
   fill_in "trabalhador[nome_completo]",	with: "Roberto Freitas"
   fill_in "trabalhador[telefone]",	with: "87991784512"
   fill_in "trabalhador[data_nascimento]",	with: "2003-06-10"
-  fill_in "trabalhador[email]",	with: "roberto@gmail.com"
+  fill_in "trabalhador[email]",	with: "roberto14@gmail.com"
   fill_in "trabalhador[senha]",	with: "senha1542"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+end
+
+Given('eu preencho o nome do servico de eletricista {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome,
+  descricao, valor, categoria, horario_inicio, horario_termino|
+
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "Caleb Freitas"
+  fill_in "trabalhador[telefone]",	with: "87881784512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-06-15"
+  fill_in "trabalhador[email]",	with: "Caleb10@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha874"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+end
+
+Given('eu preencho o nome do servico de encanador {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome,
+  descricao, valor, categoria, horario_inicio, horario_termino|
+
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "Matheus Freitas"
+  fill_in "trabalhador[telefone]",	with: "87881954512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-02-15"
+  fill_in "trabalhador[email]",	with: "Matheus@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha8744"
   fill_in "trabalhador[profissao]",	with: "profissional"
   click_button 'Create Trabalhador'
   expect(page).to have_content("Trabalhador was successfully created.")
@@ -52,8 +96,29 @@ Given('o servico {string} Descricao {string} Valor {string} Categoria {string} H
   fill_in "trabalhador[nome_completo]",	with: "pedro Freitas"
   fill_in "trabalhador[telefone]",	with: "87991724512"
   fill_in "trabalhador[data_nascimento]",	with: "2003-06-11"
-  fill_in "trabalhador[email]",	with: "pedro@gmail.com"
+  fill_in "trabalhador[email]",	with: "pedro25@gmail.com"
   fill_in "trabalhador[senha]",	with: "senha265"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+  click_button "Create Servico"
+end
+
+Given('e o servico {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "joao Freitas"
+  fill_in "trabalhador[telefone]",	with: "87941724512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-07-11"
+  fill_in "trabalhador[email]",	with: "joao@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha854"
   fill_in "trabalhador[profissao]",	with: "profissional"
   click_button 'Create Trabalhador'
   expect(page).to have_content("Trabalhador was successfully created.")
