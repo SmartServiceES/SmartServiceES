@@ -19,7 +19,7 @@ Given('O trabalhador com nome_completo {string}, telefone {string}, data_de_nasc
 end
 
 
-When('Agora preencho os campos de Nome {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
+When('Eu preencho os campos de Nome {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
   visit '/servicos/new'
 
   fill_in "servico[nome]",	with: nome
@@ -34,17 +34,18 @@ When('Eu clico em Create Servico') do
   click_button "Create Servico"
 end
 
-Then('Vejo {string}') do |mensagem|
+Then('Eu vejo a mensagem {string}') do |mensagem|
   expect(page).to have_content(mensagem)
+
+
 end
 
-
-Then('Vejo a mensagem {string} que o servico não foi criado') do |mensagem|
+Then('Eu vejo a mensagem de erro {string} que o servico não foi criado') do |mensagem|
   expect(page).to have_content(mensagem)
+  expect(page).to have_current_path('/servicos/new')
 end
 
-# Destruir servico
-
+# Destruir servico OK
 Given('O servico de Nome {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} existe') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
   visit '/servicos/new'
 
@@ -55,26 +56,26 @@ Given('O servico de Nome {string} Descricao {string} Valor {string} Categoria {s
   fill_in "servico[horario_inicio]",	with: horario_inicio
   fill_in "servico[horario_termino]",	with: horario_termino
   click_button "Create Servico"
+  expect(page).to have_content("Servico was successfully created.")
 end
 
-When('Eu clico em servico de nome {string}') do |nome|
+When('Eu estou na pagindo do servico de nome {string}') do |nome|
   expect(page).to have_content(nome)
-
 end
 
 When('Eu clico em Destroy this servico') do
   click_button "Destroy this servico"
+  expect(page).to have_content("Servico was successfully destroyed.")
 end
 
-#Deletar servico não existente
-
+#Deletar servico não existente OK
 Given('Eu estou na pagina de servicos') do
   visit '/servicos'
   expect(page).to have_current_path('/servicos')
 end
 
-When('Agora na pagina de servico não encontrou servico de Nome {string}') do |string|
-  expect(page).to have_no_content(string)
+When('Eu vejo que o servico com nome {string} nao esta listado') do |servico|
+  expect(page).to have_no_content(servico)
 end
 
 Then('Continuo na pagina de servico') do
