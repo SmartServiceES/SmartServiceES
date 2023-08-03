@@ -35,5 +35,5 @@ Feature: Gerenciamento de servico
 
   Scenario: remover servico inexistente
     Given Eu estou na pagina de servicos
-    When Eu vejo que o servico com nome "Trabalho" nao esta listado
+    When Eu vejo que o servico com nome "ConstruLar" nao esta listado
     Then Continuo na pagina de servico
