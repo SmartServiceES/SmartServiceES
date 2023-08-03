@@ -18,7 +18,7 @@ end
   When('Eu clico em Create trabalhador') do
     click_button "Create Trabalhador"
   end
-  
+
   Then('Eu vejo a mensagem de criado com sucesso {string}') do |mensagem|
     expect(page).to have_content(mensagem)
   end
@@ -26,16 +26,16 @@ end
   #EDITAR
 
 Given('O trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string} existe') do |nome, telefone, data_nascimento_str, email, senha, profissao|
+    visit '/trabalhadors/new'
+    expect(page).to have_current_path('/trabalhadors/new')
     data_nascimento = Date.parse(data_nascimento_str)
-  
-    Trabalhador.create!(
-      nome_completo: nome,
-      telefone: telefone,
-      data_nascimento: data_nascimento,
-      email: email,
-      senha: senha,
-      profissao: profissao
-    )
+    fill_in "trabalhador[nome_completo]",	with: nome
+    fill_in "trabalhador[telefone]",	with: telefone
+    fill_in "trabalhador[data_nascimento]",	with: data_nascimento.strftime('%Y-%m-%d')
+    fill_in "trabalhador[email]",	with: email
+    fill_in "trabalhador[senha]",	with: senha
+    fill_in "trabalhador[profissao]",	with: profissao
+    click_button "Create Trabalhador"
   end
   
   Given('Eu estou na pagina de edicao do trabalhador com o nome {string}') do |nome|
@@ -58,16 +58,16 @@ Given('O trabalhador com o nome {string}, telefone {string}, data de nascimento 
   
   #DELETAR
 Given('O trabalhador com nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string} existe') do |nome, telefone, data_nascimento_str, email, senha, profissao|
-    data_nascimento = Date.parse(data_nascimento_str)
-  
-    Trabalhador.create!(
-      nome_completo: nome,
-      telefone: telefone,
-      data_nascimento: data_nascimento,
-      email: email,
-      senha: senha,
-      profissao: profissao
-    )
+  visit '/trabalhadors/new'
+  expect(page).to have_current_path('/trabalhadors/new')
+  data_nascimento = Date.parse(data_nascimento_str)
+    fill_in "trabalhador[nome_completo]",	with: nome
+    fill_in "trabalhador[telefone]",	with: telefone
+    fill_in "trabalhador[data_nascimento]",	with: data_nascimento.strftime('%Y-%m-%d')
+    fill_in "trabalhador[email]",	with: email
+    fill_in "trabalhador[senha]",	with: senha
+    fill_in "trabalhador[profissao]",	with: profissao
+    click_button "Create Trabalhador"
   end
 
   Given('Eu estou na pagina de detalhes do trabalhador com o nome {string}') do |nome|
@@ -111,7 +111,7 @@ Given('Eu estou em registrar trabalhadores') do
   #Email invalido
   Given('Eu tenho no sistema um trabalhador com o nome {string}, telefone {string}, data de nascimento {string}, email {string}, senha {string} e profissao {string}') do |nome, telefone, data_nascimento_str, email, senha, profissao|
     data_nascimento = Date.parse(data_nascimento_str)
-  
+
     Trabalhador.create!(
       nome_completo: nome,
       telefone: telefone,
