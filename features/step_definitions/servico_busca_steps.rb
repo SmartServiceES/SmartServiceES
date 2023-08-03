@@ -1,117 +1,169 @@
-Given("que existem serviços cadastrados na categoria {string}") do |categoria|
-  @servicos_pedreiro =  Servico.create([
-                                         { nome: 'Encanador 1', categoria: 'encanador' },
-                                         { nome: 'Encanador 2', categoria: 'encanador' },
-                                         { nome: 'pedreiro 1', categoria: 'pedreiro' },
-                                         { nome: 'pedreiro 2', categoria: 'pedreiro' },
-                                         { nome: 'Eletricista 1', categoria: 'eletricista' },
-                                         { nome: 'Eletricista 2', categoria: 'eletricista' }
-                                       ])
-
+Given('eu estou na pagina de cadastrar um novo servico') do
+  visit '/servicos/new'
+  expect(page).to have_current_path('/servicos/new')
 end
 
-When("eu procuro pelos serviços da categoria {string}") do |categoria|
-  @resultados = Servico.where(categoria: categoria)
+Given('eu preencho o nome do servico {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome,
+  descricao, valor, categoria, horario_inicio, horario_termino|
+
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "Roberto Freitas"
+  fill_in "trabalhador[telefone]",	with: "87991784512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-06-10"
+  fill_in "trabalhador[email]",	with: "roberto14@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha1542"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
 end
 
-Then("eu visualizo uma lista de serviços disponíveis de pedreiro") do
-  expect(@resultados.all? { |servico| servico.categoria == 'pedreiro' }).to be true
+Given('eu preencho o nome do servico de eletricista {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome,
+  descricao, valor, categoria, horario_inicio, horario_termino|
+
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "Caleb Freitas"
+  fill_in "trabalhador[telefone]",	with: "87881784512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-06-15"
+  fill_in "trabalhador[email]",	with: "Caleb10@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha874"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+end
+
+Given('eu preencho o nome do servico de encanador {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string}') do |nome,
+  descricao, valor, categoria, horario_inicio, horario_termino|
+
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "Matheus Freitas"
+  fill_in "trabalhador[telefone]",	with: "87881954512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-02-15"
+  fill_in "trabalhador[email]",	with: "Matheus@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha8744"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+end
+
+Given('eu clico em Create Servico') do
+  click_button "Create Servico"
+end
+
+When('eu preencho no campo de busca a categoria {string}') do |categoria|
+  fill_in "q_categoria_cont",	with: categoria
+end
+
+Then('eu visualizo uma lista de serviços disponíveis de {string}') do |categoria|
+  visit '/servicos'
+  expect(page).to have_content(categoria)
+end
+
+Given('eu estou na pagina de listagem de todos os servicos') do
+  visit '/servicos'
+  expect(page).to have_current_path('/servicos')
+end
+
+Then('eu não encontro nenhum servico da categoria {string}') do |categoria|
+  expect(page).to have_no_content(categoria)
+end
+
+Given('o servico {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "pedro Freitas"
+  fill_in "trabalhador[telefone]",	with: "87991724512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-06-11"
+  fill_in "trabalhador[email]",	with: "pedro25@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha265"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+  click_button "Create Servico"
+end
+
+Given('o servico de encanador {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "Luciano Freitas"
+  fill_in "trabalhador[telefone]",	with: "87941728412"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-08-11"
+  fill_in "trabalhador[email]",	with: "Luciano@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senh9875"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+  click_button "Create Servico"
+end
+
+Given('e o servico de eletricista {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
+  visit '/trabalhadors/new'
+  fill_in "trabalhador[nome_completo]",	with: "Anderson Freitas"
+  fill_in "trabalhador[telefone]",	with: "87962724512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-01-11"
+  fill_in "trabalhador[email]",	with: "Anderson@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha98516"
+  fill_in "trabalhador[profissao]",	with: "profissional"
+  click_button 'Create Trabalhador'
+  expect(page).to have_content("Trabalhador was successfully created.")
+
+  visit '/servicos/new'
+  fill_in "servico[nome]",	with: nome
+  fill_in "servico[descricao]",	with: descricao
+  fill_in "servico[valor]", with: valor
+  fill_in "servico[categoria]", with: categoria
+  fill_in "servico[horario_inicio]",	with: horario_inicio
+  fill_in "servico[horario_termino]",	with: horario_termino
+  click_button "Create Servico"
 end
 
 
-
-
-Given("que contem serviços cadastrados na categoria {string}") do |categoria|
-  @servicos_eletricista = Servico.create([
-                                           { nome: 'Encanador 1', categoria: 'encanador' },
-                                           { nome: 'Encanador 2', categoria: 'encanador' },
-                                           { nome: 'pedreiro 1', categoria: 'pedreiro' },
-                                           { nome: 'pedreiro 2', categoria: 'pedreiro' },
-                                           { nome: 'Eletricista 1', categoria: 'eletricista' },
-                                           { nome: 'Eletricista 2', categoria: 'eletricista' }
-                                         ])
+Given('eu visito a pagina de listagem de todos os servicos') do
+  visit '/servicos'
+  expect(page).to have_current_path('/servicos')
 end
 
-When("procuro serviços nesta categoria {string}") do |categoria|
-  @resultados = Servico.where(categoria: categoria)
+Given('eu clico em Search') do
+  click_button "Search"
 end
 
-Then("eu visualizo uma lista de serviços disponíveis de eletricista") do
-  expect(@resultados.all? { |servico| servico.categoria == 'eletricista' }).to be true
-end
-
-
-
-
-Given("que tem serviços cadastrados na categoria {string}") do |categoria|
-  @servicos_encanador = Servico.create([
-                                         { nome: 'Encanador 1', categoria: 'encanador' },
-                                         { nome: 'Encanador 2', categoria: 'encanador' },
-                                         { nome: 'pedreiro 1', categoria: 'pedreiro' },
-                                         { nome: 'pedreiro 2', categoria: 'pedreiro' },
-                                         { nome: 'Eletricista 1', categoria: 'eletricista' },
-                                         { nome: 'Eletricista 2', categoria: 'eletricista' }
-                                       ])
-end
-
-When("eu busco por um tipo de serviço da categoria {string}") do |categoria|
-  @resultados = Servico.where(categoria: categoria)
-end
-
-Then("eu visualizo uma lista de serviços disponíveis de encanador") do
-  expect(@resultados.all? { |servico| servico.categoria == 'eletricista' }).to be true
-end
-
-
-
-
-Given("que não existem serviços cadastrados na categoria {string}") do |categoria|
-  Servico.where(categoria: categoria)#.destroy_all
-end
-
-When("eu varro pelos serviços da categoria {string}") do |categoria|
-  @servicos_encontrados = Servico.where(categoria: categoria)
-end
-
-Then("eu visualizo uma mensagem informando que não há serviços disponíveis nesta categoria") do
-  if @servicos_encontrados.empty?
-    puts "Não há serviços disponíveis nesta categoria."
-  else
-    puts "A lista de serviços encontrados é:"
-    @servicos_encontrados.each do |servico|
-      puts servico.nome
-    end
-  end
-end
-
-
-
-
-
-
-Given("que existem serviços cadastrados nas categorias {string}") do |categorias|
-  categorias_list = categorias.split(', ')
-  @servicos = {}
-  categorias_list.each do |categoria|
-    @servicos[categoria] = Servico.create([
-                                            { nome: 'Encanador 1', categoria: 'encanador' },
-                                            { nome: 'Encanador 2', categoria: 'encanador' },
-                                            { nome: 'pedreiro 1', categoria: 'pedreiro' },
-                                            { nome: 'pedreiro 2', categoria: 'pedreiro' },
-                                            { nome: 'Eletricista 1', categoria: 'eletricista' },
-                                            { nome: 'Eletricista 2', categoria: 'eletricista' }
-                                          ])
-  end
-end
-
-When("eu vasculo pelos serviços das categorias {string}") do |categorias|
-  categorias_list = categorias.split(', ')
-  @resultados = {}
-  categorias_list.each do |categoria|
-    @resultados[categoria] = Servico.where(categoria: categoria)
-  end
-end
-
-Then("eu visualizo uma lista de serviços disponíveis para cada categoria") do
-  expect(@resultados.all? ).to be true
+Then('eu visualizo uma lista de serviços disponíveis para das categorias {string}') do |categoria|
+  expect(page).to have_content(categoria)
 end

@@ -4,26 +4,44 @@ Feature: Busca de serviço
   So that eu visualize os servicos disponiveis
 
   Scenario: Buscar serviços de pedreiro
-    Given que existem serviços cadastrados na categoria "pedreiro"
-    When eu procuro pelos serviços da categoria "pedreiro"
-    Then eu visualizo uma lista de serviços disponíveis de pedreiro
+    Given eu estou na pagina de cadastrar um novo servico
+    And eu preencho o nome do servico "Servicos de pedreiro" Descricao "pequenos servicos de pedreiro" Valor "75" Categoria "pedreiro" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30"
+    And eu clico em Create Servico
+    When eu visito a pagina de listagem de todos os servicos
+    And eu preencho no campo de busca a categoria "pedreiro"
+    And eu clico em Search
+    Then eu visualizo uma lista de serviços disponíveis de "pedreiro"
 
   Scenario: Buscar serviços de eletricista
-    Given que contem serviços cadastrados na categoria "eletricista"
-    When procuro serviços nesta categoria "eletricista"
-    Then eu visualizo uma lista de serviços disponíveis de eletricista
+    Given eu estou na pagina de cadastrar um novo servico
+    And eu preencho o nome do servico de eletricista "Servicos de eletricista" Descricao "pequenos servicos de eletricista" Valor "75" Categoria "eletricista" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30"
+    And eu clico em Create Servico
+    When eu visito a pagina de listagem de todos os servicos
+    And eu preencho no campo de busca a categoria "eletricista"
+    And eu clico em Search
+    Then eu visualizo uma lista de serviços disponíveis de "eletricista"
 
   Scenario: Buscar serviços de encanador
-    Given que tem serviços cadastrados na categoria "encanador"
-    When eu busco por um tipo de serviço da categoria "encanador"
-    Then eu visualizo uma lista de serviços disponíveis de encanador
+    Given eu estou na pagina de cadastrar um novo servico
+    And eu preencho o nome do servico de encanador "Servicos de encanador" Descricao "pequenos e grandes servicos em encanamento" Valor "100" Categoria "encanador" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30"
+    And eu clico em Create Servico
+    When eu visito a pagina de listagem de todos os servicos
+    And eu preencho no campo de busca a categoria "encanador"
+    And eu clico em Search
+    Then eu visualizo uma lista de serviços disponíveis de "encanador"
 
   Scenario: Buscar serviços em uma categoria inexistente
-    Given que não existem serviços cadastrados na categoria "marceneiro"
-    When eu varro pelos serviços da categoria "marceneiro"
-    Then eu visualizo uma mensagem informando que não há serviços disponíveis nesta categoria
+    Given eu estou na pagina de listagem de todos os servicos
+    And eu preencho no campo de busca a categoria "marceneiro"
+    Then eu não encontro nenhum servico da categoria "marceneiro"
 
   Scenario: Buscar serviços em várias categorias
-    Given que existem serviços cadastrados nas categorias "encanador,eletricista,pedreiro"
-    When eu vasculo pelos serviços das categorias "encanador,eletricista,pedreiro"
-    Then eu visualizo uma lista de serviços disponíveis para cada categoria
+    Given o servico de encanador "Servicos de encanador" Descricao "pequenos e grandes servicos em encanamento" Valor "100" Categoria "encanador" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30" está cadastrado
+    And e o servico de eletricista "Servicos de eletricista" Descricao "pequenos servicos de eletricista" Valor "75" Categoria "eletricista" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30" está cadastrado
+    And eu visito a pagina de listagem de todos os servicos
+    And eu preencho no campo de busca a categoria "encanador"
+    And eu clico em Search
+    Then eu visualizo uma lista de serviços disponíveis para das categorias "encanador"
+    And eu preencho no campo de busca a categoria "eletricista"
+    And eu clico em Search
+    Then eu visualizo uma lista de serviços disponíveis para das categorias "eletricista"
