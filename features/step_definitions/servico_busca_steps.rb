@@ -112,13 +112,13 @@ Given('o servico {string} Descricao {string} Valor {string} Categoria {string} H
   click_button "Create Servico"
 end
 
-Given('e o servico {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
+Given('o servico de encanador {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
   visit '/trabalhadors/new'
-  fill_in "trabalhador[nome_completo]",	with: "joao Freitas"
-  fill_in "trabalhador[telefone]",	with: "87941724512"
-  fill_in "trabalhador[data_nascimento]",	with: "2003-07-11"
-  fill_in "trabalhador[email]",	with: "joao@gmail.com"
-  fill_in "trabalhador[senha]",	with: "senha854"
+  fill_in "trabalhador[nome_completo]",	with: "Luciano Freitas"
+  fill_in "trabalhador[telefone]",	with: "87941728412"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-08-11"
+  fill_in "trabalhador[email]",	with: "Luciano@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senh9875"
   fill_in "trabalhador[profissao]",	with: "profissional"
   click_button 'Create Trabalhador'
   expect(page).to have_content("Trabalhador was successfully created.")
@@ -133,13 +133,13 @@ Given('e o servico {string} Descricao {string} Valor {string} Categoria {string}
   click_button "Create Servico"
 end
 
-Given('e o servico {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
+Given('e o servico de eletricista {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
   visit '/trabalhadors/new'
-  fill_in "trabalhador[nome_completo]",	with: "joao Freitas"
-  fill_in "trabalhador[telefone]",	with: "87941724512"
-  fill_in "trabalhador[data_nascimento]",	with: "2003-07-11"
-  fill_in "trabalhador[email]",	with: "joao@gmail.com"
-  fill_in "trabalhador[senha]",	with: "senha854"
+  fill_in "trabalhador[nome_completo]",	with: "Anderson Freitas"
+  fill_in "trabalhador[telefone]",	with: "87962724512"
+  fill_in "trabalhador[data_nascimento]",	with: "2003-01-11"
+  fill_in "trabalhador[email]",	with: "Anderson@gmail.com"
+  fill_in "trabalhador[senha]",	with: "senha98516"
   fill_in "trabalhador[profissao]",	with: "profissional"
   click_button 'Create Trabalhador'
   expect(page).to have_content("Trabalhador was successfully created.")

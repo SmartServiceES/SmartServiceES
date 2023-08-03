@@ -36,8 +36,8 @@ Feature: Busca de serviço
     Then eu não encontro nenhum servico da categoria "marceneiro"
 
   Scenario: Buscar serviços em várias categorias
-    Given o servico "Servicos de encanador" Descricao "pequenos e grandes servicos em encanamento" Valor "100" Categoria "encanador" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30" está cadastrado
-    And e o servico "Servicos de eletricista" Descricao "pequenos servicos de eletricista" Valor "75" Categoria "eletricista" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30" está cadastrado
+    Given o servico de encanador "Servicos de encanador" Descricao "pequenos e grandes servicos em encanamento" Valor "100" Categoria "encanador" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30" está cadastrado
+    And e o servico de eletricista "Servicos de eletricista" Descricao "pequenos servicos de eletricista" Valor "75" Categoria "eletricista" Horario inicio "2023-08-29 20:20" Horario termino "2023-08-29 21:30" está cadastrado
     And eu visito a pagina de listagem de todos os servicos
     And eu preencho no campo de busca a categoria "encanador"
     And eu clico em Search
