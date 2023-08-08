@@ -1,0 +1,17 @@
+<%= form_with(model: contrato) do |form| %>
+  <% if contrato.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
+
+      <ul>
+        <% contrato.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
