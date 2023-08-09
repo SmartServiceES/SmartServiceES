@@ -2,6 +2,12 @@
 
 <h1>Clientes</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :nome_completo, "Busca de Cliente por Nome: " %>
+  <%= f.search_field :nome_completo_cont %>
+  <%= f.submit %>
+<%end %>
+
 <div id="clientes">
   <% @clientes.each do |cliente| %>
     <%= render cliente %>
