@@ -3,6 +3,12 @@
 <h1><%=link_to "Smart Services", root_path %></h1>
 <h2>Trabalhadores</h2>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :profissao, "Busca de Trabalhador por Categoria: " %>
+  <%= f.search_field :profissao_cont %>
+  <%= f.submit %>
+<%end %>
+
 <div id="trabalhadors">
   <% @trabalhadors.each do |trabalhador| %>
     <%= render trabalhador %>
