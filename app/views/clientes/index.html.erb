@@ -8,6 +8,14 @@
   <%= f.submit %>
 <%end %>
 
+<p> </p>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :cpf, "Busca de Cliente por CPF: " %>
+  <%= f.search_field :cpf_cont %>
+  <%= f.submit %>
+<%end %>
+
 <div id="clientes">
   <% @clientes.each do |cliente| %>
     <%= render cliente %>
