@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_da_rua: MyText
+  numero_da_casa: MyText
+  cep: MyText
+  bairro: MyText
+  cidade: MyText
+  complemento: MyText
+
+two:
+  nome_da_rua: MyText
+  numero_da_casa: MyText
+  cep: MyText
+  bairro: MyText
+  cidade: MyText
+  complemento: MyText

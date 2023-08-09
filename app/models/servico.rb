@@ -1,5 +1,6 @@
 class Servico < ApplicationRecord
   belongs_to :trabalhador
+  belongs_to :cliente
   def self.ransackable_attributes(_auth_object = nil)
     ["categoria", "created_at", "descricao", "horario_inicio", "horario_termino", "id", "nome", "trabalhador_id", "updated_at", "valor"]
   end

@@ -28,6 +28,28 @@
           padding: 1rem;
       }
 
+      p4{
+          position:absolute;
+          left: 1000px;
+          width: 820px;
+          height: 800px;
+          top:450px;
+          text-align: center;
+          font-size: 40px;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+      }
+
+      p3{
+          position:absolute;
+          left: 850px;
+          width: 820px;
+          height: 800px;
+          top:450px;
+          text-align: center;
+          font-size: 40px;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+      }
+
       p2{
           position:absolute;
           left: 700px;
@@ -63,6 +85,8 @@
     </ul>
   </nav>
 </header>
+<p4><%= link_to "Contratos", contratos_path %></p4>
+<p3><%= link_to "Clientes", clientes_path %></p3>
 <p2><%= link_to "Serviços", servicos_path %></p2>
 <p1><%= link_to "Trabalhadores", trabalhadors_path %></p1>
 <footer class="fixar-rodape">
