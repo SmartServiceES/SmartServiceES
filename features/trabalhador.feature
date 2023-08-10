@@ -20,7 +20,7 @@ Scenario: Excluir prestador de servico
   Given O trabalhador com nome "Joao Henrique", telefone "87123456789", data de nascimento "1990-01-01", email "luffy@example.com", senha "bzxWWW80DD" e profissao "Engenheiro" existe
   And Eu estou na pagina de detalhes do trabalhador com o nome "Joao Henrique" e email "luffy@example.com"
   When Eu clico em Destroy this trabalhador
-  Then Eu vejo a mensagem de sucesso 'Trabalhador was successfully destroyed.'
+  Then Eu vejo a mensagem de excluido com sucesso 'Trabalhador was successfully destroyed.'
 
 Scenario: Tentativa de cadastro com número de telefone muito curto
   Given Eu estou em registrar trabalhadores

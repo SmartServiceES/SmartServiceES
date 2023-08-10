@@ -35,7 +35,6 @@ When('Eu clico em Create Servico') do
 end
 
 Then('Eu vejo a mensagem {string}') do |mensagem|
-  wait = Selenium::WebDriver::Wait.new(timeout: 20) # Tempo máximo de espera em segundos
   expect(page).to have_content(mensagem)
 
 

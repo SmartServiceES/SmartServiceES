@@ -81,7 +81,7 @@ Given('O trabalhador com nome {string}, telefone {string}, data de nascimento {s
     click_button "Destroy this trabalhador"
   end
 
-  Then('Eu vejo a mensagem de sucesso {string}') do |mensagem|
+  Then('Eu vejo a mensagem de excluido com sucesso {string}') do |mensagem|
     expect(page).to have_content(mensagem)
   end
 
