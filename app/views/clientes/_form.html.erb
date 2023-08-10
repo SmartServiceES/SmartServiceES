@@ -42,6 +42,20 @@
   </div>
 
   <div>
+    <h3> --Endereço-- </h3>
+
+    <%= form.fields_for :endereco do |endereco_form| %>
+      Logradouro  : <%= endereco_form.text_field :nome_da_rua %>
+      Numero  : <%= endereco_form.text_field :numero_da_casa %>
+      Cep: <%= endereco_form.text_field :cep %>
+      Bairro  : <%= endereco_form.text_field :bairro %>
+      Cidade: <%= endereco_form.text_field :cidade %>
+      Complemento  : <%= endereco_form.text_field :complemento %>
+      Delete: <%= endereco_form.check_box :_destroy %>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
