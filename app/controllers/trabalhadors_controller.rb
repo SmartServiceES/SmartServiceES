@@ -4,6 +4,8 @@ class TrabalhadorsController < ApplicationController
   # GET /trabalhadors or /trabalhadors.json
   def index
     @trabalhadors = Trabalhador.all
+    @q = Trabalhador.ransack(params[:q])
+    @trabalhadors = @q.result(distinct: true).all
   end
 
   # GET /trabalhadors/1 or /trabalhadors/1.json

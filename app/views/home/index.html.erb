@@ -1,71 +1,107 @@
 <head>
   <style>
-      footer.fixar-rodape{
-          border-top-style: inset;
-          bottom: 0px;
-          left: 0;
-          height: 50px;
-          position: fixed;
-          width: 100%;
+      .dropdown{
           text-align: center;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
       }
-      nav ul li p {
-          margin-left: 1rem;
+      .card-column {
+          margin-right: 10px;
       }
-      header {
-          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-          position: fixed;
-          width: 100%;
-          height: 100px;
-          top: 0;
-          margin-left: -10px;
+      .row{
+          margin-top: 150px;
+          top: 50px;
+      }
+      .custom-card {
+          width: 300px;
+          height: 400px;
+      }
+      .custom-button {
+          text-align: center;
+          margin-top: 50px;
+      }
+      .container {
+          flex-grow: 2;
+      }
+      .white-text {
+          color: white;
+      }
+      footer{
+          text-align: center;
+      }
+      .shadow-hover:hover {
+          box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+          transition: box-shadow 0.3s ease-in-out;
+      }
+      .scale-hover:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s ease-in-out;
+      }
+      .image-container {
+          text-align: center; /* Centraliza o conteúdo horizontalmente */
       }
 
-      header, nav ul {
-          display: flex;
-          justify-content: space-around;
-          padding: 1rem;
-      }
 
-      p2{
-          position:absolute;
-          left: 700px;
-          width: 820px;
-          height: 800px;
-          top:450px;
-          text-align: center;
-          font-size: 40px;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
-      }
-      p1{
-          position:absolute;
-          top: 450px;
-          left: 650px;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
-          font-size: 40px;
-          text-align: right;
-      }
-      h1{
-
-          text-align: center;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
-      }
   </style>
 </head>
 
 <body>
-<h1>Smart Service - Home</h1>
-<header>
-  <nav>
-    <ul>
+<div class="row justify-content-center">
+  <div class="col-md-2  mb-4 card-column">
+    <div class="card custom-card text-center scale-hover" style="width: 18rem;">
+      <div class="image-container">
+        <img src="<%= asset_path('iconHome/worker.png') %>" alt="Descrição da Imagem" align="" width="100" height="100" style="margin-top: 20px">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Trabalhadores</h5>
+        <p class="card-text">Listagem de todos os trabalhadores, simples e fácil.</p>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary custom-button">
+            <%= link_to "Trabalhadores", trabalhadors_path, class: "white-text" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    </ul>
-  </nav>
-</header>
-<p2><%= link_to "Serviços", servicos_path %></p2>
-<p1><%= link_to "Trabalhadores", trabalhadors_path %></p1>
-<footer class="fixar-rodape">
-  <p>©<a href="https://github.com/SmartServiceES/SmartServiceES"> Smart Service ES</a></p>
+  <div class="col-md-2 mb-4 card-column">
+    <div class="card custom-card text-center scale-hover" style="width: 18rem;">
+      <div class="image-container">
+        <img src="<%= asset_path('iconHome/serviço.png') %>" alt="Descrição da Imagem" align="" width="100" height="100" style="margin-top: 20px">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Serviços</h5>
+        <p class="card-text">Listagem de todos os serviços, simples e fácil.</p>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary custom-button">
+            <%= link_to "Serviços", servicos_path, class: "white-text" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2 mb-4 card-column">
+    <div class="card custom-card text-center scale-hover" style="width: 18rem;">
+      <div class="image-container">
+        <img src="<%= asset_path('iconHome/users.png') %>" alt="Descrição da Imagem" align="" width="100" height="100" style="margin-top: 20px">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Clientes</h5>
+        <p class="card-text">Listagem de todos os clientes, simples e fácil.</p>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary custom-button">
+            <%= link_to "Clientes", clientes_path, class: "white-text" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+  <div class="container">
+    <span class="text-muted">© 2023 Smart Service. Todos os direitos reservados.</span>
+  </div>
 </footer>
 </body>
+
+

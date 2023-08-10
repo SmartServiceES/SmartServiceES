@@ -1,0 +1,63 @@
+<div id="<%= dom_id cliente %>">
+  <p>
+    <strong>Nome completo:</strong>
+    <%= cliente.nome_completo %>
+  </p>
+
+  <p>
+    <strong>Data nascimento:</strong>
+    <%= cliente.data_nascimento %>
+  </p>
+
+  <p>
+    <strong>Cpf:</strong>
+    <%= cliente.cpf %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= cliente.email %>
+  </p>
+
+  <p>
+    <strong>Senha:</strong>
+    <%= cliente.senha %>
+  </p>
+
+  <p>
+    <strong>Telefone:</strong>
+    <%= cliente.telefone %>
+  </p>
+
+  <h3 class="title_3--paciente"> --Endereço-- </h3>
+  <p>
+    <strong>Logradouro:</strong>
+    <%= cliente.endereco.nome_da_rua %>
+  </p>
+
+  <p>
+    <strong>Numero:</strong>
+    <%= cliente.endereco.numero_da_casa %>
+  </p>
+
+  <p>
+    <strong>Cep:</strong>
+    <%= cliente.endereco.cep %>
+  </p>
+
+  <p>
+    <strong>Bairro:</strong>
+    <%= cliente.endereco.bairro %>
+  </p>
+
+  <p>
+    <strong>Cidade:</strong>
+    <%= cliente.endereco.cidade %>
+  </p>
+
+  <p>
+    <strong>Complemento:</strong>
+    <%= cliente.endereco.complemento %>
+  </p>
+
+</div>

@@ -1,6 +1,10 @@
 class Trabalhador < ApplicationRecord
   has_many :servicos, dependent: :destroy
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "data_nascimento", "email", "id", "nome_completo", "profissao", "senha", "telefone", "updated_at"]
+  end
+
   validates :nome_completo, presence: {message: 'obrigatório (minimo 8)'}, format: {with: /\A[a-zA-z ]+\z/}, length: {minimum: 8, maximum: 80}
   validates :data_nascimento, presence: true
   validates :email, presence: {message: 'obrigatório'}, format: {with: URI:: MailTo::EMAIL_REGEXP}, uniqueness: true

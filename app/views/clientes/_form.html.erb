@@ -1,0 +1,61 @@
+<%= form_with(model: cliente) do |form| %>
+  <% if cliente.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+        <% cliente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome_completo, style: "display: block" %>
+    <%= form.text_area :nome_completo %>
+  </div>
+
+  <div>
+    <%= form.label :data_nascimento, style: "display: block" %>
+    <%= form.date_field :data_nascimento %>
+  </div>
+
+  <div>
+    <%= form.label :cpf, style: "display: block" %>
+    <%= form.text_area :cpf %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_area :email %>
+  </div>
+
+  <div>
+    <%= form.label :senha, style: "display: block" %>
+    <%= form.text_area :senha %>
+  </div>
+
+  <div>
+    <%= form.label :telefone, style: "display: block" %>
+    <%= form.text_area :telefone %>
+  </div>
+
+  <div>
+    <h3> --Endereço-- </h3>
+
+    <%= form.fields_for :endereco do |endereco_form| %>
+      Logradouro  : <%= endereco_form.text_field :nome_da_rua %>
+      Numero  : <%= endereco_form.text_field :numero_da_casa %>
+      Cep: <%= endereco_form.text_field :cep %>
+      Bairro  : <%= endereco_form.text_field :bairro %>
+      Cidade: <%= endereco_form.text_field :cidade %>
+      Complemento  : <%= endereco_form.text_field :complemento %>
+      Delete: <%= endereco_form.check_box :_destroy %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

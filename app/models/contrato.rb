@@ -1,0 +1,2 @@
+class Contrato < ApplicationRecord
+end

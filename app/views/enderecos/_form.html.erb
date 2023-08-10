@@ -1,0 +1,47 @@
+<%= form_with(model: endereco) do |form| %>
+  <% if endereco.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(endereco.errors.count, "error") %> prohibited this endereco from being saved:</h2>
+
+      <ul>
+        <% endereco.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome_da_rua, style: "display: block" %>
+    <%= form.text_area :nome_da_rua %>
+  </div>
+
+  <div>
+    <%= form.label :numero_da_casa, style: "display: block" %>
+    <%= form.text_area :numero_da_casa %>
+  </div>
+
+  <div>
+    <%= form.label :cep, style: "display: block" %>
+    <%= form.text_area :cep %>
+  </div>
+
+  <div>
+    <%= form.label :bairro, style: "display: block" %>
+    <%= form.text_area :bairro %>
+  </div>
+
+  <div>
+    <%= form.label :cidade, style: "display: block" %>
+    <%= form.text_area :cidade %>
+  </div>
+
+  <div>
+    <%= form.label :complemento, style: "display: block" %>
+    <%= form.text_area :complemento %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

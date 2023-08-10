@@ -5,35 +5,29 @@
       }
   </style>
 </head>
-<div id="<%= dom_id trabalhador %>">
-  <p>
-    <strong>Nome completo:</strong>
-    <%= trabalhador.nome_completo %>
-  </p>
-
-  <p>
-    <strong>Telefone:</strong>
-    <%= trabalhador.telefone %>
-  </p>
-
-  <p>
-    <strong>Data nascimento:</strong>
-    <%= trabalhador.data_nascimento %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= trabalhador.email %>
-  </p>
-
-  <p>
-    <strong>Senha:</strong>
-    <%= trabalhador.senha %>
-  </p>
-
-  <p>
-    <strong>Profissao:</strong>
-    <%= trabalhador.profissao %>
-  </p>
-
+<div class="d-flex justify-content-center">
+  <table class="table rounded-table" style="max-width: 1000px;">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome completo</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Data de Nascimento</th>
+      <th scope="col">Email</th>
+      <th scope="col">Senha</th>
+      <th scope="col">Profissão</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td><%= trabalhador.nome_completo %></td>
+      <td><%= trabalhador.telefone %></td>
+      <td><%= trabalhador.data_nascimento %></td>
+      <td><%= trabalhador.email %></td>
+      <td><%= trabalhador.senha %></td>
+      <td><%= trabalhador.profissao %></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
