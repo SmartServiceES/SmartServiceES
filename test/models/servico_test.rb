@@ -10,7 +10,7 @@ class ServicoTest < ActiveSupport::TestCase
                                   email: 'pedroshouldz@outlook.com',
                                   senha: 'senha123',
                                   profissao: 'Lavador de carro'
-    trabalhador.save
+    assert trabalhador.save
 
     servico = Servico.new(nome: 'Lava se Carros e Motos',
                           descricao: 'Lavagem completa de veiculos',
