@@ -3,8 +3,8 @@
 <%= render @cliente %>
 
 <div>
-  <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
-  <%= link_to "Back to clientes", clientes_path %>
+  <p><%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> | </p>
+  <p><%= link_to "Back to clientes", clientes_path %> </p>
 
-  <%= button_to "Destroy this cliente", @cliente, method: :delete %>
+  <p><%= button_to "Destroy this cliente", @cliente, method: :delete %> </p>
 </div>

@@ -64,3 +64,13 @@ end
 Then('Eu vejo a mensagem que o cliente foi editado com sucesso {string}') do |mensagem|
   expect(page).to have_content(mensagem)
 end
+
+#Deletar cliente valido
+
+When('Eu clico em Destroy this cliente') do
+  click_button "Destroy this cliente"
+end
+
+Then('Eu vejo a mensagem que o cliente foi deletado com sucesso {string}') do |mensagem|
+  expect(page).to have_content(mensagem)
+end
