@@ -1,36 +1,42 @@
-<p style="color: green"><%= notice %></p>
-
+<p></p>
 <%= render @trabalhador %>
 
-<div>
-  <strong>-- serviços --</strong>
-
-  <table>
+<div class="d-flex justify-content-center" style="margin-bottom: 20px">
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Edit this trabalhador", edit_trabalhador_path(@trabalhador), class: "white-text"  %>
+  </button>
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Back to trabalhadors", trabalhadors_path, class: "white-text" %>
+  </button>
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Destroy this trabalhador", @trabalhador, method: :delete , class: "white-text"%>
+  </button>
+</div>
+<h2 class="text-center">Serviços deste trabalhador</h2>
+<div class="d-flex justify-content-center">
+  <table class="table rounded-table" style="max-width: 1000px;">
     <thead>
     <tr>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Valor</th>
-      <th>Categoria</th>
+      <th scope="col">#</th>
+      <th scope="col">Nome completo</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Data de Nascimento</th>
     </tr>
     </thead>
-
     <tbody>
-      <% @trabalhador.servicos.each do |servicos| %>
+    <% @trabalhador.servicos.each do |servicos| %>
       <tr>
         <td><%= servicos.nome %></td>
         <td><%= servicos.descricao %></td>
         <td><%= servicos.valor %></td>
         <td><%= servicos.categoria %></td>
       </tr>
-      <% end %>
+    <% end %>
     </tbody>
   </table>
 </div>
 
-<div>
-  <%= link_to "Edit this trabalhador", edit_trabalhador_path(@trabalhador) %> |
-  <%= link_to "Back to trabalhadors", trabalhadors_path %>
+<h3 class="contorno-texto" style="color: green;text-align: center"><%= notice %></h3>
 
-  <%= button_to "Destroy this trabalhador", @trabalhador, method: :delete %>
-</div>
+
+
