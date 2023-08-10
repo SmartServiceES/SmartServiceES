@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_08_163946) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
   create_table "clientes", force: :cascade do |t|
     t.text "nome_completo"
     t.date "data_nascimento"
@@ -18,6 +18,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_163946) do
     t.text "email"
     t.text "senha"
     t.text "telefone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contratos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_163946) do
     t.text "complemento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cliente_id", null: false
+    t.index ["cliente_id"], name: "index_enderecos_on_cliente_id"
   end
 
   create_table "servicos", force: :cascade do |t|
@@ -59,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_163946) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "enderecos", "clientes"
   add_foreign_key "servicos", "servicos"
   add_foreign_key "servicos", "trabalhadors"
 end

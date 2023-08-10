@@ -50,24 +50,16 @@
           font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
       }
 
-      p2{
-          position:absolute;
-          left: 700px;
-          width: 820px;
-          height: 800px;
-          top:450px;
+      main{
+          margin-top: 100px;
+      }
+
+      .p{
           text-align: center;
           font-size: 40px;
           font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
       }
-      p1{
-          position:absolute;
-          top: 450px;
-          left: 650px;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
-          font-size: 40px;
-          text-align: right;
-      }
+
       h1{
 
           text-align: center;
@@ -85,10 +77,13 @@
     </ul>
   </nav>
 </header>
-<p4><%= link_to "Contratos", contratos_path %></p4>
-<p3><%= link_to "Clientes", clientes_path %></p3>
-<p2><%= link_to "Serviços", servicos_path %></p2>
-<p1><%= link_to "Trabalhadores", trabalhadors_path %></p1>
+<main>
+  <p class="p"><%= link_to "Contratos", contratos_path %></p>
+  <p class="p"><%= link_to "Clientes", clientes_path %></p>
+  <p class="p"><%= link_to "Serviços", servicos_path %></p>
+  <p class="p"><%= link_to "Trabalhadores", trabalhadors_path %></p>
+</main>
+
 <footer class="fixar-rodape">
   <p>©<a href="https://github.com/SmartServiceES/SmartServiceES"> Smart Service ES</a></p>
 </footer>

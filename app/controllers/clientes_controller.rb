@@ -13,15 +13,18 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    @cliente.build_endereco
   end
 
   # GET /clientes/1/edit
   def edit
+    @cliente = Cliente.find(params[:id])
   end
 
   # POST /clientes or /clientes.json
   def create
     @cliente = Cliente.new(cliente_params)
+    @cliente.endereco = Endereco.new(cliente_params[:endereco_attributes])
 
     respond_to do |format|
       if @cliente.save
@@ -36,6 +39,7 @@ class ClientesController < ApplicationController
 
   # PATCH/PUT /clientes/1 or /clientes/1.json
   def update
+    @cliente = Cliente.find(params[:id])
     respond_to do |format|
       if @cliente.update(cliente_params)
         format.html { redirect_to cliente_url(@cliente), notice: "Cliente was successfully updated." }
@@ -49,7 +53,9 @@ class ClientesController < ApplicationController
 
   # DELETE /clientes/1 or /clientes/1.json
   def destroy
+    @cliente = Cliente.find(params[:id])
     @cliente.destroy
+    @cliente.endereco.destroy
 
     respond_to do |format|
       format.html { redirect_to clientes_url, notice: "Cliente was successfully destroyed." }
@@ -65,6 +71,6 @@ class ClientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-      params.require(:cliente).permit(:nome_completo, :data_nascimento, :cpf, :email, :senha, :telefone)
+      params.require(:cliente).permit(:nome_completo, :data_nascimento, :cpf, :email, :senha, :telefone, {:endereco_attributes => [:nome_da_rua, :numero_da_casa, :cep, :bairro, :cidade, :complemento]})
     end
 end
