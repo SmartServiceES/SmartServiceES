@@ -14,7 +14,7 @@ Given('O trabalhador com nome_completo {string}, telefone {string}, data_de_nasc
   fill_in "trabalhador[email]",	with: email
   fill_in "trabalhador[senha]",	with: senha
   fill_in "trabalhador[profissao]",	with: profissao
-  click_button 'Create Trabalhador'
+  click_button 'Salvar'
   expect(page).to have_content("Trabalhador was successfully created.")
 end
 
@@ -35,6 +35,7 @@ When('Eu clico em Create Servico') do
 end
 
 Then('Eu vejo a mensagem {string}') do |mensagem|
+  wait = Selenium::WebDriver::Wait.new(timeout: 20) # Tempo máximo de espera em segundos
   expect(page).to have_content(mensagem)
 
 

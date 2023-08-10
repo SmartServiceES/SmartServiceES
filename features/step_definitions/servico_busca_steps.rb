@@ -13,7 +13,7 @@ Given('eu preencho o nome do servico {string} Descricao {string} Valor {string} 
   fill_in "trabalhador[email]",	with: "roberto14@gmail.com"
   fill_in "trabalhador[senha]",	with: "senha1542"
   fill_in "trabalhador[profissao]",	with: "profissional"
-  click_button 'Create Trabalhador'
+  click_button 'Salvar'
   expect(page).to have_content("Trabalhador was successfully created.")
 
   visit '/servicos/new'
@@ -35,7 +35,7 @@ Given('eu preencho o nome do servico de eletricista {string} Descricao {string} 
   fill_in "trabalhador[email]",	with: "Caleb10@gmail.com"
   fill_in "trabalhador[senha]",	with: "senha874"
   fill_in "trabalhador[profissao]",	with: "profissional"
-  click_button 'Create Trabalhador'
+  click_button 'Salvar'
   expect(page).to have_content("Trabalhador was successfully created.")
 
   visit '/servicos/new'
@@ -57,7 +57,7 @@ Given('eu preencho o nome do servico de encanador {string} Descricao {string} Va
   fill_in "trabalhador[email]",	with: "Matheus@gmail.com"
   fill_in "trabalhador[senha]",	with: "senha8744"
   fill_in "trabalhador[profissao]",	with: "profissional"
-  click_button 'Create Trabalhador'
+  click_button 'Salvar'
   expect(page).to have_content("Trabalhador was successfully created.")
 
   visit '/servicos/new'
@@ -87,7 +87,7 @@ Given('eu estou na pagina de listagem de todos os servicos') do
   expect(page).to have_current_path('/servicos')
 end
 
-Then('eu não encontro nenhum servico da categoria {string}') do |categoria|
+Then('eu vejo a pagina em branco sem nenhum servico da categoria {string}') do |categoria|
   expect(page).to have_no_content(categoria)
 end
 
@@ -120,7 +120,7 @@ Given('o servico de encanador {string} Descricao {string} Valor {string} Categor
   fill_in "trabalhador[email]",	with: "Luciano@gmail.com"
   fill_in "trabalhador[senha]",	with: "senh9875"
   fill_in "trabalhador[profissao]",	with: "profissional"
-  click_button 'Create Trabalhador'
+  click_button 'Salvar'
   expect(page).to have_content("Trabalhador was successfully created.")
 
   visit '/servicos/new'
@@ -141,7 +141,7 @@ Given('e o servico de eletricista {string} Descricao {string} Valor {string} Cat
   fill_in "trabalhador[email]",	with: "Anderson@gmail.com"
   fill_in "trabalhador[senha]",	with: "senha98516"
   fill_in "trabalhador[profissao]",	with: "profissional"
-  click_button 'Create Trabalhador'
+  click_button 'Salvar'
   expect(page).to have_content("Trabalhador was successfully created.")
 
   visit '/servicos/new'
@@ -161,9 +161,9 @@ Given('eu visito a pagina de listagem de todos os servicos') do
 end
 
 Given('eu clico em Search') do
-  click_button "Search"
+  click_button "Pesquisar"
 end
 
-Then('eu visualizo uma lista de serviços disponíveis para das categorias {string}') do |categoria|
+Then('eu visualizo uma lista de serviços disponíveis da categoria {string}') do |categoria|
   expect(page).to have_content(categoria)
 end
