@@ -21,3 +21,9 @@ Feature: Gerenciamento de cliente
     And O cliente com nome completo "Pedro Caitano" data de nascimento "2000-09-14" cpf "05621812450" email "pedroshouldz@outlook.com" senha "senha123" telefone "81998436108" rua "Rua Santos Dumount" numero "245" CEP "55715000" Bairro "Jardim santa rosa" cidade "Feira Nova" complemento "Casa" existe
     When Eu clico em Destroy this cliente
     Then Eu vejo a mensagem que o cliente foi deletado com sucesso 'Cliente was successfully destroyed.'
+
+  Scenario: Cadastrar um cliente invalido
+    Given Eu estou na pagina de registrar clientes
+    When Eu preencho nome completo "P" data de nascimento "2000-09-14" cpf "05621812450" email "pedroshouldz@outlook.com" senha "senha123" telefone "81998436108" rua "Rua Santos Dumount" numero "245" CEP "55715000" Bairro "Jardim santa rosa" cidade "Feira Nova" complemento "Casa"
+    And Eu clico em Create Cliente
+    Then Eu vejo uma mensagem de erro "1 error prohibited this cliente from being saved:"
