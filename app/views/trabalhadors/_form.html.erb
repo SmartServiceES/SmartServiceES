@@ -1,4 +1,15 @@
-<%= form_with(model: trabalhador) do |form| %>
+<head>
+  <style>
+      .form-field {
+          margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+
+      }
+
+  </style>
+
+</head>
+<body>
+<%= form_with(model: trabalhador, local: true, html: { class: 'row g-3' }) do |form| %>
   <% if trabalhador.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(trabalhador.errors.count, "error") %> prohibited this trabalhador from being saved:</h2>
@@ -11,37 +22,64 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome_completo, style: "display: block" %>
-    <%= form.text_field :nome_completo %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :nome_completo, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Nome completo:
+      <% end %>
+      <%= form.text_field :nome_completo, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o nome completo'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :telefone, style: "display: block" %>
-    <%= form.text_field :telefone %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :telefone, class: 'form-label' do %>
+        Telefone:
+      <% end %>
+      <%= form.text_field :telefone, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o seu telefone'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :data_nascimento, style: "display: block" %>
-    <%= form.date_field :data_nascimento %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :data_nascimento, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Data de nascimento:
+      <% end %>
+      <%= form.date_field :data_nascimento, class: 'form-control', style: 'width: 300px; margin-left: 400px;'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :email, class: 'form-label' do %>
+        Email:
+      <% end %>
+      <%= form.text_field :email, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o email'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :senha, style: "display: block" %>
-    <%= form.text_field :senha %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :senha, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Senha:
+      <% end %>
+      <%= form.text_field :senha, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite sua senha: '%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :profissao, style: "display: block" %>
-    <%= form.text_field :profissao %>
+  <div class="col-md-6 form-field">
+    <%= form.label :profissao, class: 'form-label' do %>
+      Profissão:
+    <% end %>
+    <%= form.text_field :profissao, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite a sua profissão'%>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-12 text-center">
+    <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
   </div>
+
+
 <% end %>
+
+</body>
+
