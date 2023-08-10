@@ -27,3 +27,10 @@ Feature: Gerenciamento de cliente
     When Eu preencho nome completo "P" data de nascimento "2000-09-14" cpf "05621812450" email "pedroshouldz@outlook.com" senha "senha123" telefone "81998436108" rua "Rua Santos Dumount" numero "245" CEP "55715000" Bairro "Jardim santa rosa" cidade "Feira Nova" complemento "Casa"
     And Eu clico em Create Cliente
     Then Eu vejo uma mensagem de erro "1 error prohibited this cliente from being saved:"
+
+  Scenario: Editar com dados invalidos
+    Given Eu estou na pagina de listagem de clientes
+    And O cliente com nome completo "Pedro Caitano" data de nascimento "2000-09-14" cpf "05621812450" email "pedroshouldz@outlook.com" senha "senha123" telefone "81998436108" rua "Rua Santos Dumount" numero "245" CEP "55715000" Bairro "Jardim santa rosa" cidade "Feira Nova" complemento "Casa" existe
+    When Eu clico em Edit this cliente
+    And Eu edito o nome do cliente para "B"
+    Then Eu vejo uma mensagem de erro "1 error prohibited this cliente from being saved:"
