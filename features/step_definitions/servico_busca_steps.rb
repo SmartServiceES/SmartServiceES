@@ -70,7 +70,7 @@ Given('eu preencho o nome do servico de encanador {string} Descricao {string} Va
 end
 
 Given('eu clico em Create Servico') do
-  click_button "Create Servico"
+  click_button "Salvar"
 end
 
 When('eu preencho no campo de busca a categoria {string}') do |categoria|
@@ -109,7 +109,7 @@ Given('o servico {string} Descricao {string} Valor {string} Categoria {string} H
   fill_in "servico[categoria]", with: categoria
   fill_in "servico[horario_inicio]",	with: horario_inicio
   fill_in "servico[horario_termino]",	with: horario_termino
-  click_button "Create Servico"
+  click_button "Salvar"
 end
 
 Given('o servico de encanador {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
@@ -130,7 +130,7 @@ Given('o servico de encanador {string} Descricao {string} Valor {string} Categor
   fill_in "servico[categoria]", with: categoria
   fill_in "servico[horario_inicio]",	with: horario_inicio
   fill_in "servico[horario_termino]",	with: horario_termino
-  click_button "Create Servico"
+  click_button "Salvar"
 end
 
 Given('e o servico de eletricista {string} Descricao {string} Valor {string} Categoria {string} Horario inicio {string} Horario termino {string} está cadastrado') do |nome, descricao, valor, categoria, horario_inicio, horario_termino|
@@ -151,7 +151,7 @@ Given('e o servico de eletricista {string} Descricao {string} Valor {string} Cat
   fill_in "servico[categoria]", with: categoria
   fill_in "servico[horario_inicio]",	with: horario_inicio
   fill_in "servico[horario_termino]",	with: horario_termino
-  click_button "Create Servico"
+  click_button "Salvar"
 end
 
 

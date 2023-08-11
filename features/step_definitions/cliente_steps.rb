@@ -21,7 +21,7 @@ end
   end
 
   When('Eu clico em Create Cliente') do
-    click_button "Create Cliente"
+    click_button "Salvar"
   end
 
   Then('Eu vejo a mensagem de criado com sucesso {string}.') do |mensagem|
@@ -50,7 +50,7 @@ Given('O cliente com nome completo {string} data de nascimento {string} cpf {str
   fill_in "cliente[endereco_attributes][bairro]",	with: bairro
   fill_in "cliente[endereco_attributes][cidade]",	with: cidade
   fill_in "cliente[endereco_attributes][complemento]",	with: complemento
-  click_button "Create Cliente"
+  click_button "Salvar"
 end
 When('Eu clico em Edit this cliente') do
   click_link "Edit this cliente"
@@ -58,7 +58,7 @@ end
 
 When('Eu edito o nome do cliente para {string}') do |nome_novo|
   fill_in "cliente[nome_completo]",	with: nome_novo
-  click_button "Update Cliente"
+  click_button "Salvar"
 end
 
 Then('Eu vejo a mensagem que o cliente foi editado com sucesso {string}') do |mensagem|
