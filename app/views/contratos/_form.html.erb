@@ -12,6 +12,16 @@
   <% end %>
 
   <div>
+    <%= form.label :cliente_id, style: "display: block" %>
+    <%= form.collection_select(:cliente_id, Cliente.all, :id, :nome_completo,{:selected => @contrato.cliente_id})%>
+  </div>
+
+  <div>
+    <%= form.label :servico_id, style: "display: block" %>
+    <%= form.collection_select(:servico_id, Servico.all, :id, :nome,{:selected => @contrato.servico_id})%>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
