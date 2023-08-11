@@ -16,7 +16,7 @@ end
   end
   
   When('Eu clico em Create trabalhador') do
-    click_button "Create Trabalhador"
+    click_button "Salvar"
   end
 
   Then('Eu vejo a mensagem de criado com sucesso {string}') do |mensagem|
@@ -35,7 +35,7 @@ Given('O trabalhador com o nome {string}, telefone {string}, data de nascimento 
     fill_in "trabalhador[email]",	with: email
     fill_in "trabalhador[senha]",	with: senha
     fill_in "trabalhador[profissao]",	with: profissao
-    click_button "Create Trabalhador"
+    click_button "Salvar"
   end
   
   Given('Eu estou na pagina de edicao do trabalhador com o nome {string}') do |nome|
@@ -49,7 +49,7 @@ Given('O trabalhador com o nome {string}, telefone {string}, data de nascimento 
   end
   
   When('Eu clico em Update trabalhador') do
-    click_button "Update Trabalhador"
+    click_button "Salvar"
   end
   
   Then('Eu vejo a mensagem de editado com sucesso {string}') do |mensagem|
@@ -67,20 +67,20 @@ Given('O trabalhador com nome {string}, telefone {string}, data de nascimento {s
     fill_in "trabalhador[email]",	with: email
     fill_in "trabalhador[senha]",	with: senha
     fill_in "trabalhador[profissao]",	with: profissao
-    click_button "Create Trabalhador"
+    click_button "Salvar"
   end
 
-  Given('Eu estou na pagina de detalhes do trabalhador com o nome {string}') do |nome|
-    trabalhador = Trabalhador.find_by(nome_completo: nome)
-    visit trabalhador_path(trabalhador)
+  Given('Eu estou na pagina de detalhes do trabalhador com o nome {string} e email {string}') do |nome, email|
+    expect(page).to have_content(nome)
+    expect(page).to have_content(email)
   end
 
   When('Eu clico em Destroy this trabalhador') do
-    click_on "Destroy this trabalhador"
+    click_button "Destroy this trabalhador"
   end
 
-  Then('Eu vejo a mensagem de sucesso {string}') do |string|
-    expect(page).to have_content(string)
+  Then('Eu vejo a mensagem de excluido com sucesso {string}') do |mensagem|
+    expect(page).to have_content(mensagem)
   end
 
 #Telefone pequeno
@@ -101,7 +101,7 @@ Given('Eu estou em registrar trabalhadores') do
   end
   
   When('Eu clico em Create Trabalhador') do
-    click_button "Create Trabalhador"
+    click_button "Salvar"
   end
   
   Then('Eu vejo a mensagem de erro {string}') do |mensagem|
@@ -132,7 +132,7 @@ Given('Eu estou em registrar trabalhadores') do
   end
 
   When('Eu clico em Update Trabalhador') do
-    click_button "Update Trabalhador"
+    click_button "Salvar"
   end
 
   Then('Eu vejo uma mensagem de erro {string}') do |mensagem|

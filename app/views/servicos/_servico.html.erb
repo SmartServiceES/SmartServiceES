@@ -5,43 +5,33 @@
     }
   </style>
 </head>
-<div id="<%= dom_id servico %>">
-  <h1>
-    Serviços Ofertados:
-  </h1>
-  <p>
-    <strong>Nome:</strong>
-    <%= servico.nome %>
-  </p>
-
-  <p>
-    <strong>Descricao:</strong>
-    <%= servico.descricao %>
-  </p>
-
-  <p>
-    <strong>Valor:</strong>
-    <%= servico.valor %>
-  </p>
-
-  <p>
-    <strong>Categoria:</strong>
-    <%= servico.categoria %>
-  </p>
-
-  <p>
-    <strong>Horario inicio:</strong>
-    <%= servico.horario_inicio %>
-  </p>
-
-  <p>
-    <strong>Horario termino:</strong>
-    <%= servico.horario_termino %>
-  </p>
-
-  <p>
-    <strong>Trabalhador:</strong>
-    <%= servico.trabalhador.nome_completo %>
-  </p>
-
+<div class="d-flex justify-content-center">
+  <div class="table-responsive" style="max-width: 1000px;">
+    <table class="table rounded-table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome completo</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Valor(R$)</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Horario de inicio</th>
+        <th scope="col">Horario de termino</th>
+        <th scope="col">Trabalhador</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td><%= servico.nome %></td>
+          <td><%= servico.descricao %></td>
+          <td><%= servico.valor %></td>
+          <td><%= servico.categoria %></td>
+          <td><%= servico.horario_inicio %></td>
+          <td><%= servico.horario_termino %></td>
+          <td><%= servico.trabalhador.nome_completo %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
