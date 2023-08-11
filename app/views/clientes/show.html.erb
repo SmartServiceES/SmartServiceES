@@ -2,9 +2,13 @@
 
 <%= render @cliente %>
 
-<div>
-  <p><%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> | </p>
-  <p><%= link_to "Back to clientes", clientes_path %> </p>
+<div class="d-flex justify-content-center" style="margin-bottom: 20px">
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Edit this cliente", edit_cliente_path(@cliente), class: "white-text"  %>
+  </button>
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Back to clientes", clientes_path, class: "white-text" %>
+  </button>
+  <%= button_to "Destroy this cliente", @cliente, method: :delete , class: "white-text btn btn-primary custom-button"%>
 
-  <p><%= button_to "Destroy this cliente", @cliente, method: :delete %> </p>
 </div>
