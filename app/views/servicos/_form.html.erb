@@ -42,16 +42,16 @@
   <div class="col-md-6 form-field">
     <div class="mb-3">
       <%= form.label :valor, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
-        Data de nascimento:
+        Valor:
       <% end %>
-      <%= form.text_field :valor, class: 'form-control', style: 'width: 300px; margin-left: 400px;'%>
+      <%= form.text_field :valor, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o valor'%>
     </div>
   </div>
 
   <div class="col-md-6 form-field">
     <div class="mb-3">
       <%= form.label :categoria, class: 'form-label' do %>
-        Email:
+        Categoria
       <% end %>
       <%= form.text_field :categoria, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o email'%>
     </div>
@@ -60,7 +60,7 @@
   <div class="col-md-6 form-field">
     <div class="mb-3">
       <%= form.label :horario_inicio, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
-        Senha:
+        Horario de Inicio:
       <% end %>
       <%= form.datetime_field :horario_inicio, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite sua senha: '%>
     </div>
@@ -68,7 +68,7 @@
 
   <div class="col-md-6 form-field">
     <%= form.label :horario_termino, class: 'form-label' do %>
-      Profissão:
+      Horario de Termino:
     <% end %>
     <%= form.datetime_field :horario_termino, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite a sua profissão'%>
   </div>
@@ -76,7 +76,7 @@
   <div class="col-md-6 form-field">
     <div class="mb-3">
       <%= form.label :trabalhador_id , class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
-        Senha:
+        Trabalhador
       <% end %>
       <%= form.collection_select(:trabalhador_id, Trabalhador.all, :id, :nome_completo, { selected: @servico.trabalhador_id }, { class: 'form-control', style: 'width: 300px; margin-left: 400px;', placeholder: 'Selecione um trabalhador' }) %>
     </div>
