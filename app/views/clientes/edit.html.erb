@@ -1,10 +1,16 @@
-<h1>Editing cliente</h1>
+<h1 class="text-center">Editing cliente</h1>
 
 <%= render "form", cliente: @cliente %>
 
 <br>
 
-<div>
-  <%= link_to "Show this cliente", @cliente %> |
-  <%= link_to "Back to clientes", clientes_path %>
+<div class="d-flex justify-content-center">
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Show this cliente", @cliente, class: "white-text"  %>
+  </button>
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Back to clientes", clientes_path, class: "white-text" %>
+  </button>
 </div>
+
+<p></p>

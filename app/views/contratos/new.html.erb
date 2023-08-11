@@ -1,9 +1,11 @@
-<h1>New contrato</h1>
+<h1 class="text-center">New contrato</h1>
 
 <%= render "form", contrato: @contrato %>
 
 <br>
 
-<div>
-  <%= link_to "Back to contratos", contratos_path %>
+<div class="d-flex justify-content-center">
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Back to contratos", contratos_path , class: "white-text" %>
+  </button>
 </div>

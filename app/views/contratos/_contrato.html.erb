@@ -1,2 +1,27 @@
-<div id="<%= dom_id contrato %>">
+<h2 class="text-center">Serviços deste trabalhador</h2>
+<div class="d-flex justify-content-center">
+  <div class="table-responsive" style="max-width: 1000px;">
+    <table class="table rounded-table">
+      <thead>
+      <tr>
+        <th scope="col">Serviço</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Trabalhador</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Data de inicio</th>
+        <th scope="col">Data de entrega</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <%= contrato.servico.nome %></td>
+          <td> <%= contrato.cliente.nome_completo %></td>
+          <td> <%= contrato.servico.trabalhador.nome_completo %></td>
+          <td> <%= contrato.servico.valor %></td>
+          <td> <%= contrato.servico.horario_inicio %></td>
+          <td> <%= contrato.servico.horario_termino %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
