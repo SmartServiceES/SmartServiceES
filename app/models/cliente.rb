@@ -2,6 +2,8 @@ class Cliente < ApplicationRecord
   has_many :contratoes
   has_one :endereco, dependent: :destroy
   accepts_nested_attributes_for :endereco, allow_destroy: true
+  has_many :contratos
+  has_many :trabalhadores, through: :contratos
 
   validates :nome_completo, presence: {message: 'Nome completo obrigatório'}, format: {with: /\A[a-zA-z ]+\z/}, length: {minimum: 8, maximum: 80}
   validates :cpf, presence: {message: 'CPF obrigatório'}, length: {minimum: 11, maximum: 11}, numericality: {only_integer: true}, uniqueness: true
