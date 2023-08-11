@@ -15,20 +15,61 @@
 
     .InputContainer {
         text-align: center;
-        /* Defina a largura desejada para a barra de busca */
-        width: 250px; /* Por exemplo, 300px */
+        width: 250px;
         position: fixed;
         top: 50px;
         right: 10px;
-        /* Resto do seu código CSS... */
     }
 
 </style>
 
 <p style="color: green"><%= notice %></p>
-
-<h1><%=link_to "Smart Services", root_path %></h1>
-<h2>Serviços</h2>
+<div id="servicos">
+  <div class="d-flex justify-content-center">
+    <div class="table-responsive" style="max-width: 1000px;">
+      <table class="table rounded-table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome completo</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Valor(R$)</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Horario de inicio</th>
+          <th scope="col">Horario de termino</th>
+          <th scope="col">Trabalhador</th>
+          <th scope="col">Visualizar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @servicos.each_with_index do |servico, index| %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= servico.nome %></td>
+            <td><%= servico.descricao %></td>
+            <td><%= servico.valor %></td>
+            <td><%= servico.categoria %></td>
+            <td><%= servico.horario_inicio %></td>
+            <td><%= servico.horario_termino %></td>
+            <td><%= servico.trabalhador.nome_completo %></td>
+            <td> <%= link_to "Show this trabalhador", servico %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary">
+      <%= link_to "New servico", new_servico_path, class: "white-text" %>
+    </button>
+    <button type="button" class="btn btn-primary">
+      <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>
+    </button>
+  </div>
+</div>
 
 <div class="InputContainer">
   <%= search_form_for @q, html: { class: 'search-form' } do |f| %>
@@ -45,15 +86,3 @@
     <% end %>
     <% end %>
 </div>
-
-<div id="servicos">
-  <% @servicos.each do |servico| %>
-    <%= render servico %>
-    <p>
-      <%= link_to "Show this servico", servico %>
-    </p>
-  <% end %>
-</div>
-
-<p><%= link_to "New servico", new_servico_path %></p>
-<p><%= link_to "Pagina inicial", home_index_path %></p>
