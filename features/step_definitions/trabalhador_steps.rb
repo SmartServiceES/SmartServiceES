@@ -71,10 +71,8 @@ Given('O trabalhador com nome {string}, telefone {string}, data de nascimento {s
   end
 
   Given('Eu estou na pagina de detalhes do trabalhador com o nome {string} e email {string}') do |nome, email|
-    visit '/trabalhadors/'
     expect(page).to have_content(nome)
     expect(page).to have_content(email)
-    click_link "Show this trabalhador"
   end
 
   When('Eu clico em Destroy this trabalhador') do
