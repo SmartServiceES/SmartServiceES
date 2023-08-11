@@ -8,9 +8,8 @@
   <button class="btn btn-primary custom-button">
     <%= link_to "Back to trabalhadors", trabalhadors_path, class: "white-text" %>
   </button>
-  <button class="btn btn-primary custom-button">
-    <%= link_to "Destroy this trabalhador", @trabalhador, method: :delete , class: "white-text"%>
-  </button>
+    <%= button_to "Destroy this trabalhador", @trabalhador, method: :delete , class: "white-text btn btn-primary custom-button"%>
+
 </div>
 <h2 class="text-center">Serviços deste trabalhador</h2>
 <div class="d-flex justify-content-center">

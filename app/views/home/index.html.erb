@@ -4,6 +4,7 @@
           text-align: center;
       }
       .card-column {
+          flex: 0 0 calc(33.33% - 150px);
           margin-right: 10px;
       }
       .row{
@@ -31,15 +32,17 @@
           box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
           transition: box-shadow 0.3s ease-in-out;
       }
-      .scale-hover:hover {
-          transform: scale(1.05);
+      .scale-hover {
           transition: transform 0.3s ease-in-out;
       }
-      .image-container {
-          text-align: center; /* Centraliza o conteúdo horizontalmente */
+
+      .scale-hover:hover {
+          transform: scale(1.05);
       }
 
-
+      .image-container {
+          text-align: center;
+      }
   </style>
 </head>
 

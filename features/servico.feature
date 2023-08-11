@@ -7,7 +7,7 @@ Feature: Gerenciamento de servico
   Scenario: cadastrar servico valido
     Given Eu estou na pagina de registrar servicos
     And O trabalhador com nome_completo "Joao Carlos", telefone "87090900000", data_de_nascimento "07/05/1994", email "joaocarlos@gmail.com", senha "12345", profissao "Mestre de obras" existe
-    When Eu preencho os campos de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "2023-08-10 20:20" Horario termino "2023-08-10 21:30"
+    When Eu preencho os campos de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "2023-09-10 20:20" Horario termino "2023-09-10 21:30"
     And Eu clico em Create Servico
     Then Eu vejo a mensagem "Servico was successfully created."
 

@@ -1,10 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
+<p></p>
 <%= render @servico %>
-
 <div>
-  <%= link_to "Edit this servico", edit_servico_path(@servico) %> |
-  <%= link_to "Back to servicos", servicos_path %>
+  <p style="color: green"><%= notice %></p>
+</div>
 
-  <%= button_to "Destroy this servico", @servico, method: :delete %>
+<div class="d-flex justify-content-center" style="margin-bottom: 20px">
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Edit this servico", edit_servico_path(@servico), class: "white-text"  %>
+  </button>
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Back to servicos", servicos_path, class: "white-text" %>
+  </button>
+  <%= button_to "Destroy this servico", @servico, method: :delete , class: "white-text btn btn-primary custom-button"%>
+
 </div>

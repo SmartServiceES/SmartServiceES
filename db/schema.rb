@@ -50,8 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "trabalhador_id", null: false
-    t.integer "servico_id", null: false
-    t.index ["servico_id"], name: "index_servicos_on_servico_id"
     t.index ["trabalhador_id"], name: "index_servicos_on_trabalhador_id"
   end
 
@@ -67,6 +65,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
   end
 
   add_foreign_key "enderecos", "clientes"
-  add_foreign_key "servicos", "servicos"
   add_foreign_key "servicos", "trabalhadors"
 end

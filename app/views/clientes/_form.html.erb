@@ -1,4 +1,13 @@
-<%= form_with(model: cliente) do |form| %>
+<head>
+  <style>
+      .form-field {
+          margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+
+      }
+
+  </style>
+</head>
+<%= form_with(model: cliente, local: true, html: { class: 'row g-3' }) do |form| %>
   <% if cliente.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
@@ -11,51 +20,117 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome_completo, style: "display: block" %>
-    <%= form.text_area :nome_completo %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :nome_completo, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Nome completo:
+      <% end %>
+      <%= form.text_field :nome_completo, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o nome completo'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :data_nascimento, style: "display: block" %>
-    <%= form.date_field :data_nascimento %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :data_nascimento, class: 'form-label' do %>
+        Data de nascimento:
+      <% end %>
+      <%= form.date_field :data_nascimento, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite a data de nascimento'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_area :cpf %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :cpf, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        CPF:
+      <% end %>
+      <%= form.text_field :cpf, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o cpf'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_area :email %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :email, class: 'form-label' do %>
+        Email:
+      <% end %>
+      <%= form.text_field :email, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o email'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :senha, style: "display: block" %>
-    <%= form.text_area :senha %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :senha, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Senha:
+      <% end %>
+      <%= form.text_field :senha, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite sua senha: '%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :telefone, style: "display: block" %>
-    <%= form.text_area :telefone %>
-  </div>
-
-  <div>
-    <h3> --Endereço-- </h3>
-
-    <%= form.fields_for :endereco do |endereco_form| %>
-      Logradouro  : <%= endereco_form.text_field :nome_da_rua %>
-      Numero  : <%= endereco_form.text_field :numero_da_casa %>
-      Cep: <%= endereco_form.text_field :cep %>
-      Bairro  : <%= endereco_form.text_field :bairro %>
-      Cidade: <%= endereco_form.text_field :cidade %>
-      Complemento  : <%= endereco_form.text_field :complemento %>
-      Delete: <%= endereco_form.check_box :_destroy %>
+  <div class="col-md-6 form-field">
+    <%= form.label :telefone, class: 'form-label' do %>
+      Telefone:
     <% end %>
+    <%= form.text_field :telefone, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o seu telefone'%>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <h2 class="text-center">Endereço</h2>
+
+  <%= form.fields_for :endereco do |endereco_form| %>
+    <div class="col-md-6 form-field">
+      <div class="mb-3">
+        <%= form.label :nome_da_rua, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+          Nome da rua:
+        <% end %>
+        <%= endereco_form.text_field :nome_da_rua, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite nome da rua: '%>
+      </div>
+    </div>
+
+    <div class="col-md-6 form-field">
+      <%= form.label :numero_da_casa, class: 'form-label' do %>
+        Número da casa:
+      <% end %>
+      <%= endereco_form.text_field :numero_da_casa, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o numero da casa'%>
+    </div>
+
+    <div class="col-md-6 form-field">
+      <div class="mb-3">
+        <%= form.label :cep, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+          CEP:
+        <% end %>
+        <%= endereco_form.text_field :cep, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o CEP: '%>
+      </div>
+    </div>
+
+    <div class="col-md-6 form-field">
+      <%= form.label :bairro, class: 'form-label' do %>
+        Bairro:
+      <% end %>
+      <%= endereco_form.text_field :bairro, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o bairro: '%>
+    </div>
+
+    <div class="col-md-6 form-field">
+      <div class="mb-3">
+        <%= form.label :cidade, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+          Cidade:
+        <% end %>
+        <%= endereco_form.text_field :cidade, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite a cidade: '%>
+      </div>
+    </div>
+
+    <div class="col-md-6 form-field">
+      <%= form.label :complemento, class: 'form-label' do %>
+        Complemento:
+      <% end %>
+      <%= endereco_form.text_field :complemento, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o complemento'%>
+    </div>
+  <% end %>
+
+    <div class="col-12 text-center">
+    <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>
+
+
+
+
+
+
