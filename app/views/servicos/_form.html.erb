@@ -1,4 +1,14 @@
-<%= form_with(model: servico) do |form| %>
+<head>
+  <style>
+      .form-field {
+          margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+
+      }
+
+  </style>
+</head>
+
+<%= form_with(model: servico, local: true, html: { class: 'row g-3' }) do |form| %>
   <% if servico.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(servico.errors.count, "error") %> prohibited this servico from being saved:</h2>
@@ -11,42 +21,68 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :nome, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Nome completo:
+      <% end %>
+      <%= form.text_field :nome, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o nome completo'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :descricao, style: "display: block" %>
-    <%= form.text_field :descricao %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :descricao, class: 'form-label' do %>
+        Telefone:
+      <% end %>
+      <%= form.text_field :descricao, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o seu telefone'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :valor, style: "display: block" %>
-    <%= form.text_field :valor %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :valor, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Data de nascimento:
+      <% end %>
+      <%= form.text_field :valor, class: 'form-control', style: 'width: 300px; margin-left: 400px;'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :categoria, style: "display: block" %>
-    <%= form.text_field :categoria %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :categoria, class: 'form-label' do %>
+        Email:
+      <% end %>
+      <%= form.text_field :categoria, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite o email'%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :horario_inicio, style: "display: block" %>
-    <%= form.datetime_field :horario_inicio %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :horario_inicio, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Senha:
+      <% end %>
+      <%= form.datetime_field :horario_inicio, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite sua senha: '%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :horario_termino, style: "display: block" %>
-    <%= form.datetime_field :horario_termino %>
+  <div class="col-md-6 form-field">
+    <%= form.label :horario_termino, class: 'form-label' do %>
+      Profissão:
+    <% end %>
+    <%= form.datetime_field :horario_termino, class: 'form-control', style: 'width: 300px;',placeholder: 'Digite a sua profissão'%>
   </div>
 
-  <div>
-    <%= form.label :trabalhador_id %>
-    <%= form.collection_select(:trabalhador_id, Trabalhador.all, :id, :nome_completo, {:selected => @servico.trabalhador_id}) %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :trabalhador_id , class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Senha:
+      <% end %>
+      <%= form.collection_select(:trabalhador_id, Trabalhador.all, :id, :nome_completo, { selected: @servico.trabalhador_id }, { class: 'form-control', style: 'width: 300px; margin-left: 400px;', placeholder: 'Selecione um trabalhador' }) %>
+    </div>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-12 text-center">
+    <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>
