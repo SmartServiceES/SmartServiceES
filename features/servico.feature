@@ -14,21 +14,21 @@ Feature: Gerenciamento de servico
   Scenario: cadastrar servico com nome vazio
     Given Eu estou na pagina de registrar servicos
     And O trabalhador com nome_completo "Wiezir Carlos", telefone "87090900010", data_de_nascimento "07/05/1995", email "Wiezircarlos@gmail.com", senha "95001", profissao "Mestre de obras" existe
-    When Eu preencho os campos de Nome "" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "2023-08-11 20:20" Horario termino "2023-08-11 21:30"
+    When Eu preencho os campos de Nome "" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "2023-09-11 20:20" Horario termino "2023-09-11 21:30"
     And Eu clico em Create Servico
     Then Eu vejo a mensagem de erro "3 errors prohibited this servico from being saved"
 
   Scenario: cadastrar servico com valor vazio
     Given Eu estou na pagina de registrar servicos
     And O trabalhador com nome_completo "Tier Carlos", telefone "87090900011", data_de_nascimento "07/05/1996", email "Kauoscarlos@gmail.com", senha "84444", profissao "Mestre de obras" existe
-    When Eu preencho os campos de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "" Categoria "Faculdade" Horario inicio "2023-08-12 20:20" Horario termino "2023-08-12 21:30"
+    When Eu preencho os campos de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "" Categoria "Faculdade" Horario inicio "2023-09-12 20:20" Horario termino "2023-09-12 21:30"
     And Eu clico em Create Servico
     Then Eu vejo a mensagem de erro "1 error prohibited this servico from being saved"
 
   Scenario: remover servico valido
     Given Eu estou na pagina de servicos
     And O trabalhador com nome_completo "Ribearun Carlos", telefone "87090900001", data_de_nascimento "07/05/1997", email "Ribearuncarlos@gmail.com", senha "34211", profissao "Mestre de obras" existe
-    And O servico de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "2023-08-13 20:20" Horario termino "2023-08-13 21:30" existe
+    And O servico de Nome "Trabalho" Descricao "Trabalho da faculdade" Valor "200" Categoria "Faculdade" Horario inicio "2023-09-13 20:20" Horario termino "2023-09-13 21:30" existe
     When Eu estou na pagindo do servico de nome "Trabalho"
     And Eu clico em Destroy this servico
     Then Eu vejo a mensagem "Servico was successfully destroyed."
