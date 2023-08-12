@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
   end
 
   create_table "contratos", force: :cascade do |t|
+    t.string "nome_cliente"
     t.integer "cliente_id", null: false
     t.integer "servico_id", null: false
     t.datetime "created_at", null: false
