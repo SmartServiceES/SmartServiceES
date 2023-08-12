@@ -3,7 +3,7 @@ class Trabalhador < ApplicationRecord
   has_many :contratos
   has_many :clientes, through: :contratos
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     ["created_at", "data_nascimento", "email", "id", "nome_completo", "profissao", "senha", "telefone", "updated_at"]
   end
 
