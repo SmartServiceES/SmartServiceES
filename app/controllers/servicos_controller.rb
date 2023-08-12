@@ -60,7 +60,16 @@ class ServicosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+ # BUSCAR
+ def buscar
+  @q = Servico.ransack(params[:q])
+  @servicos = @q.result(distinct: true).all
+  respond_to do |format|
+    format.html { render :index }
+    format.json { render :index, status: :ok, location: @servico }
+  end
+end
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_servico
