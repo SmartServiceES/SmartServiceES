@@ -41,7 +41,6 @@ class ContratoTest < ActiveSupport::TestCase
 
   test 'Criando contrato com dados válidos' do
     contrato = Contrato.new(cliente_id: @cliente.id, servico_id: @servico.id)
-    puts "Antes de salvar: #{contrato.inspect}"
     assert contrato.save
   end
   
