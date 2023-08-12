@@ -10,6 +10,7 @@ class EnderecoTest < ActiveSupport::TestCase
                           senha: '12345678',
                           telefone: '8712366589',
                           endereco: @endereco)
+    cliente.save
 
     @endereco = Endereco.new(nome_da_rua: 'Rua das Americas',
                              numero_da_casa: '120',
