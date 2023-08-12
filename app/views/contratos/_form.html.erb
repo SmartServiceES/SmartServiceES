@@ -1,4 +1,14 @@
-<%= form_with(model: contrato) do |form| %>
+<head>
+  <style>
+      .form-field {
+          margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+
+      }
+
+  </style>
+</head>
+
+<%= form_with(model: contrato, local: true, html: { class: 'row g-3' }) do |form| %>
   <% if contrato.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
@@ -11,7 +21,25 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :cliente_id, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+        Nome completo:
+      <% end %>
+      <%= form.collection_select(:cliente_id, Cliente.all, :id, :nome_completo,{:selected => @contrato.cliente_id}, { class: 'form-control', style: 'width: 300px; margin-left: 400px;', placeholder: 'Selecione um trabalhador' }) %>
+    </div>
+  </div>
+
+  <div class="col-md-6 form-field">
+    <div class="mb-3">
+      <%= form.label :servico_id, class: 'form-label' do %>
+        Serviço:
+      <% end %>
+      <%= form.collection_select(:servico_id, Servico.all, :id, :nome, {:selected => @contrato.servico_id}, { class: 'form-control', style: 'width: 300px;', placeholder: 'Selecione um trabalhador' }) %>
+    </div>
+  </div>
+
+  <div class="col-12 text-center">
+    <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>

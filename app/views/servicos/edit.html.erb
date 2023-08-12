@@ -4,7 +4,11 @@
 
 <br>
 
-<div>
-  <%= link_to "Show this servico", @servico %> |
-  <%= link_to "Back to servicos", servicos_path %>
+<div class="d-flex justify-content-center" style="margin-bottom: 20px">
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Show this servico", @servico, class: "white-text"  %>
+  </button>
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Back to servicos", servicos_path, class: "white-text" %>
+  </button>
 </div>

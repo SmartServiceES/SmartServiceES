@@ -1,14 +1,132 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+      div{
+          text-align: center;
+      }
+      .input {
+          padding: 10px;
+          width: 100%;
+          background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+          border: none;
+          color: #9EBCD9;
+          font-size: 20px;
+          border-radius: 50px;
+      }
+
+      .search__icon path {
+          fill: white;
+      }
+      .white-text {
+          color: white;
+      }
+      .InputContainer {
+          text-align: center;
+          width: 320px;
+          position: fixed;
+          top: 65px;
+          right: 10px;
+      }
+
+      .Btn {
+          left: 92px;
+          top: 2px;
+          width: 130px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgb(13, 109, 251);
+          border: none;
+          color: white;
+          font-weight: 600;
+          gap: 8px;
+          cursor: pointer;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+          position: relative;
+          overflow: hidden;
+          transition-duration: .3s;
+      }
+
+      .svgIcon {
+          width: 16px;
+      }
+
+      .svgIcon path {
+          fill: white;
+      }
+
+      .Btn::before {
+          width: 130px;
+          height: 130px;
+          position: absolute;
+          content: "";
+          background-color: white;
+          border-radius: 50%;
+          left: -100%;
+          top: 0;
+          transition-duration: .3s;
+          mix-blend-mode: difference;
+      }
+
+      .Btn:hover::before {
+          transition-duration: .3s;
+          transform: translate(100%,-50%);
+          border-radius: 0;
+      }
+
+      .Btn:active {
+          transform: translate(5px,5px);
+          transition-duration: .3s;
+      }
+  </style>
+</head>
+<body>
 <p style="color: green"><%= notice %></p>
 
-<h1>Contratos</h1>
-
 <div id="contratos">
-  <% @contratos.each do |contrato| %>
-    <%= render contrato %>
-    <p>
-      <%= link_to "Show this contrato", contrato %>
-    </p>
-  <% end %>
+  <div class="d-flex justify-content-center">
+    <div class="table-responsive" style="max-width: 1000px;">
+      <table class="table rounded-table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Serviço</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Trabalhador</th>
+          <th scope="col">Visualizar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @contratos.each_with_index do |contrato, index| %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td> <%= contrato.servico.nome %></td>
+            <td> <%= contrato.cliente.nome_completo %></td>
+            <td> <%= contrato.servico.trabalhador.nome_completo %></td>
+            <td> <%= link_to "Show this trabalhador", contrato %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
-<%= link_to "New contrato", new_contrato_path %>
+<div class="d-flex justify-content-center">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary">
+      <%= link_to "New contrato", new_contrato_path, class: "white-text" %>
+    </button>
+    <button type="button" class="btn btn-primary">
+      <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>
+    </button>
+  </div>
+</div>
+
+</body>
+<p style="color: green"><%= notice %></p>
+

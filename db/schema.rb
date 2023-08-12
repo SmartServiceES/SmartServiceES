@@ -23,8 +23,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
   end
 
   create_table "contratos", force: :cascade do |t|
+    t.integer "cliente_id", null: false
+    t.integer "servico_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_contratos_on_cliente_id"
+    t.index ["servico_id"], name: "index_contratos_on_servico_id"
   end
 
   create_table "enderecos", force: :cascade do |t|
@@ -64,6 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "contratos", "clientes"
+  add_foreign_key "contratos", "servicos"
   add_foreign_key "enderecos", "clientes"
   add_foreign_key "servicos", "trabalhadors"
 end

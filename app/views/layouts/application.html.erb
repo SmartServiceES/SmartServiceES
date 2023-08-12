@@ -31,7 +31,10 @@
 <header class="shadow">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a <%= link_to "Smart Service", home_index_path, class: "navbar-brand" %>></a>
+      <%= link_to home_index_path do %>
+        <img src="<%= asset_path('logo/logoESnoSlogan.png') %>" style="width: 150px; height: auto;" class="img-fluid" alt="Logo">
+      <% end %>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -79,8 +82,8 @@
             </ul>
           </li>
           <!-- Sobre -->
-          <li class="nav-item ">
-            <a class="nav-link active" aria-current="page" href="https://github.com/SmartServiceES/SmartServiceES">Sobre</a>
+          <li class="nav-item">
+            <%= link_to "Sobre", sobre_path, class: "nav-link active", aria: { current: "page" } %>
           </li>
         </ul>
       </div>
