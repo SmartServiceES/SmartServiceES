@@ -9,5 +9,7 @@ class Servico < ApplicationRecord
   validates_datetime :horario_termino,on_or_after: -> { DateTime.current }, message: "deve ser igual ou posterior à data e hora atual"
   validates :valor, numericality: { greater_than_or_equal_to: 0 }
 
-
+  def nome_completo_e_sobrenome
+    "#{id} #{nome}" # Substitua 'nome' e 'sobrenome' pelos seus atributos reais
+  end
 end

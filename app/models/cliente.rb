@@ -14,4 +14,7 @@ class Cliente < ApplicationRecord
     ["cpf", "created_at", "data_nascimento", "email", "id", "nome_completo", "senha", "telefone", "updated_at"]
   end
 
+  def nome_completo_e_sobrenome
+    "#{id} #{nome_completo}" # Substitua 'nome' e 'sobrenome' pelos seus atributos reais
+  end
 end
