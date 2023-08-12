@@ -11,17 +11,16 @@ class ClienteTest < ActiveSupport::TestCase
                             bairro: 'Jardim Santa Rosa',
                             cidade: 'Feira Nova',
                             complemento: 'Casa')
-
-
+    @endereco.save
   end
 
   test 'salvar cliente com dados validos' do
-    cliente = Cliente.new(nome_completo:'Mauricio Lopes',
-                           data_nascimento: '2000-09-14 00:00',
-                           cpf: '05621812450',
-                           email: 'mauricio@gmail.com',
-                           senha: '11554896',
-                           telefone: '87987562145',
+    cliente = Cliente.new(nome_completo:'Mauricio Freire',
+                           data_nascimento: '2001-09-14 00:00',
+                           cpf: '09521812450',
+                           email: 'mauricio152@gmail.com',
+                           senha: '11224896',
+                           telefone: '87995562145',
                            endereco: @endereco)
 
     assert cliente.save
@@ -29,11 +28,11 @@ class ClienteTest < ActiveSupport::TestCase
 
   test 'salvar cliente com telefone incorreto' do
 
-    cliente = Cliente.new(nome_completo:'Mauricio Lopes',
-                          data_nascimento: '2000-09-14 00:00',
-                          cpf: '05621812450',
-                          email: 'mauricio@gmail.com',
-                          senha: '11554896',
+    cliente = Cliente.new(nome_completo:'Mauricio Freitas',
+                          data_nascimento: '2002-09-14 00:00',
+                          cpf: '05236812450',
+                          email: 'mauriciofreitas@gmail.com',
+                          senha: '11658896',
                           telefone: '8722113344',
                           endereco: @endereco)
 
@@ -41,7 +40,7 @@ class ClienteTest < ActiveSupport::TestCase
   end
 
   test 'salvar cliente com dados invalidos' do
-    cliente = Cliente.new nome_completo:'Mauricio Lopes',
+    cliente = Cliente.new nome_completo:'Mauricio Melo',
                           data_nascimento: '2000-09-14 00:00',
                           cpf: '0562181245000',
                           email: 'mauricio@gmail.com',
