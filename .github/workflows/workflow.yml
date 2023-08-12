@@ -58,3 +58,6 @@ jobs:
           bundle exec cucumber
           bundle exec rails test -e actions test/models/trabalhador_test.rb
           bundle exec rails test -e actions test/models/servico_test.rb
+          bundle exec rails test -e actions test/models/endereco_test.rb
+          bundle exec rails test -e actions test/models/cliente_test.rb
+          bundle exec rails test -e actions test/models/contrato_test.rb
