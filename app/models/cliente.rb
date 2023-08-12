@@ -13,4 +13,5 @@ class Cliente < ApplicationRecord
   def self.ransackable_attributes(_auth_object = nil)
     ["cpf", "created_at", "data_nascimento", "email", "id", "nome_completo", "senha", "telefone", "updated_at"]
   end
+
 end
