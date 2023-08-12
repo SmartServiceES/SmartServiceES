@@ -39,5 +39,9 @@ class ContratoTest < ActiveSupport::TestCase
     assert not @contrato.save
   end
 
+  test 'Criando contrato sem o trabalhador' do
+    @contrato = Contrato.new(   cliente: @cliente)
+    assert not @contrato.save
+  end
 
 end
