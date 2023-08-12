@@ -14,8 +14,4 @@ class Cliente < ApplicationRecord
     ["cpf", "created_at", "data_nascimento", "email", "id", "nome_completo", "senha", "telefone", "updated_at"]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    ["contratos", "endereco"]
-  end
-
 end
