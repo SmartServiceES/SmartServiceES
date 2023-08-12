@@ -22,12 +22,12 @@ class ClienteTest < ActiveSupport::TestCase
   end
 
   test 'salvar cliente com dados validos' do
-    assert @cliente.valid?
+    assert @cliente.save
   end
 
   test 'salvar cliente com telefone incorreto' do
     @cliente.telefone = '8722113344'
-    assert_not @cliente.valid?
+    assert_not @cliente.save
   end
 
   test 'salvar cliente com dados invalidos' do
