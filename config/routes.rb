@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :enderecos
-  resources :clientes
+  resources :clientes do
+    resources :enderecos
+  end
   get 'home/index'
   get 'sobre', to: 'pages#sobre'
   root 'home#index'
