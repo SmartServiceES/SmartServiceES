@@ -213,7 +213,7 @@ then set the desired styles for .card-img. */
         <img src="<%= asset_path('iconHome/serviço.png') %>" width="100" height="100" alt="Imagem do serviço">
       </div>
       <div class="card-title"> <%= servico.nome %></div>
-      <div class="card-subtitle">Data: <%= servico.horario_inicio %></div>
+      <div class="card-subtitle">Data: <%= servico.horario_inicio.strftime('%d/%m/%Y as %H:%M:%S') %></div>
       <div class="card-footer">
         <div class="card-price"><span>$</span><%= servico.valor %></div>
         <button class="card-btn text-center" style="margin-top: 20px;">

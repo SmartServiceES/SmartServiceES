@@ -18,8 +18,8 @@
           <td> <%= contrato.cliente.nome_completo %></td>
           <td> <%= contrato.servico.trabalhador.nome_completo %></td>
           <td> <%= contrato.servico.valor %></td>
-          <td> <%= contrato.servico.horario_inicio %></td>
-          <td> <%= contrato.servico.horario_termino %></td>
+          <td> <%= contrato.servico.horario_inicio.strftime('%d/%m/%Y as %H:%M:%S') %></td>
+          <td> <%= contrato.servico.horario_termino.strftime('%d/%m/%Y as %H:%M:%S') %></td>
         </tr>
       </tbody>
     </table>
