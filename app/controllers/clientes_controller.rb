@@ -3,10 +3,18 @@ class ClientesController < ApplicationController
 
   # GET /clientes or /clientes.json
   def index
-    @clientes = Cliente.all
     @q = Cliente.ransack(params[:q])
     @clientes = @q.result(distinct: true).all
   end
+  # BUSCAR
+ def buscar
+  @q = Cliente.ransack(params[:q])
+  @clientes = @q.result(distinct: true).all
+  respond_to do |format|
+    format.html { render :index }
+    format.json { render :index, status: :ok, location: @servico }
+  end
+end
 
   # GET /clientes/1 or /clientes/1.json
   def show
