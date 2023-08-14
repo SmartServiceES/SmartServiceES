@@ -23,10 +23,10 @@
 
   <div class="col-md-6 form-field">
     <div class="mb-3">
-      <%= form.label :nome, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+      <%= form.label :nome, class: 'form-label', style: 'width: 300px; margin-left: 300px;' do %>
         Nome completo:
       <% end %>
-      <%= form.text_field :nome, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o nome completo'%>
+      <%= form.text_field :nome, class: 'form-control', style: 'width: 300px; margin-left: 300px;',placeholder: 'Digite o nome completo'%>
     </div>
   </div>
 
@@ -41,10 +41,10 @@
 
   <div class="col-md-6 form-field">
     <div class="mb-3">
-      <%= form.label :valor, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+      <%= form.label :valor, class: 'form-label', style: 'width: 300px; margin-left: 300px;' do %>
         Valor:
       <% end %>
-      <%= form.text_field :valor, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite o valor'%>
+      <%= form.text_field :valor, class: 'form-control', style: 'width: 300px; margin-left: 300px;',placeholder: 'Digite o valor'%>
     </div>
   </div>
 
@@ -59,10 +59,10 @@
 
   <div class="col-md-6 form-field">
     <div class="mb-3">
-      <%= form.label :horario_inicio, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+      <%= form.label :horario_inicio, class: 'form-label', style: 'width: 300px; margin-left: 300px;' do %>
         Horario de Inicio:
       <% end %>
-      <%= form.datetime_field :horario_inicio, class: 'form-control', style: 'width: 300px; margin-left: 400px;',placeholder: 'Digite sua senha: '%>
+      <%= form.datetime_field :horario_inicio, class: 'form-control', style: 'width: 300px; margin-left: 300px;',placeholder: 'Digite sua senha: '%>
     </div>
   </div>
 
@@ -75,10 +75,10 @@
 
   <div class="col-md-6 form-field">
     <div class="mb-3">
-      <%= form.label :trabalhador_id , class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
+      <%= form.label :trabalhador_id , class: 'form-label', style: 'width: 300px; margin-left: 300px;' do %>
         Trabalhador
       <% end %>
-      <%= form.collection_select(:trabalhador_id, Trabalhador.all, :id, :nome_completo, { selected: @servico.trabalhador_id }, { class: 'form-control', style: 'width: 300px; margin-left: 400px;', placeholder: 'Selecione um trabalhador' }) %>
+      <%= form.collection_select(:trabalhador_id, Trabalhador.all, :id, :nome_completo, { selected: @servico.trabalhador_id }, { class: 'form-control', style: 'width: 300px; margin-left: 300px;', placeholder: 'Selecione um trabalhador' }) %>
     </div>
   </div>
 

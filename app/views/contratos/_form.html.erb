@@ -23,10 +23,10 @@
 
   <div class="col-md-6 form-field">
     <div class="mb-3">
-      <%= form.label :cliente_id, class: 'form-label', style: 'width: 300px; margin-left: 400px;' do %>
-        Nome completo:
+      <%= form.label :cliente_id, class: 'form-label', style: 'width: 300px; margin-left: 300px;' do %>
+        Nome e CPF:
       <% end %>
-      <%= form.collection_select(:cliente_id, Cliente.all, :id, :nome_completo_e_sobrenome,{:selected => @contrato.cliente_id}, { class: 'form-control', style: 'width: 300px; margin-left: 400px;', placeholder: 'Selecione um trabalhador' }) %>
+      <%= form.collection_select(:cliente_id, Cliente.all, :id, :nome_completo_e_sobrenome, {:selected => @contrato.cliente_id}, { class: 'form-control', style: 'width: 300px; margin-left: 300px;', placeholder: 'Selecione um trabalhador' }) %>
     </div>
   </div>
 
@@ -43,3 +43,9 @@
     <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>
+<br>
+<div class="d-flex justify-content-center">
+  <button class="btn btn-primary custom-button">
+    <%= link_to "Back to contratos", contratos_path , class: "white-text" %>
+  </button>
+</div>
