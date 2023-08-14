@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :servicos
   resources :contratos
   get '/buscar_servicos', to: 'servicos#buscar', as: 'buscar_servicos'
+  get '/buscar_clientes', to: 'clientes#buscar', as: 'buscar_clientes'
+  get '/buscar_trabalhadors', to: 'trabalhadors#buscar', as: 'buscar_trabalhadors'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -3,9 +3,17 @@ class TrabalhadorsController < ApplicationController
 
   # GET /trabalhadors or /trabalhadors.json
   def index
-    @trabalhadors = Trabalhador.all
     @q = Trabalhador.ransack(params[:q])
     @trabalhadors = @q.result(distinct: true).all
+  end
+
+  def buscar
+    @q = Trabalhador.ransack(params[:q])
+    @trabalhadors = @q.result(distinct: true).all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :index, status: :ok, location: @servico }
+    end
   end
 
   # GET /trabalhadors/1 or /trabalhadors/1.json
