@@ -27,8 +27,8 @@
           <td><%= servico.descricao %></td>
           <td><%= servico.valor %></td>
           <td><%= servico.categoria %></td>
-          <td><%= servico.horario_inicio %></td>
-          <td><%= servico.horario_termino %></td>
+          <td><%= servico.horario_inicio.strftime('%d/%m/%Y as %H:%M:%S') %></td>
+          <td><%= servico.horario_termino.strftime('%d/%m/%Y as %H:%M:%S') %></td>
           <td><%= servico.trabalhador.nome_completo %></td>
         </tr>
       </tbody>
