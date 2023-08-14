@@ -23,7 +23,7 @@
       <th scope="row"></th>
       <td><%= trabalhador.nome_completo %></td>
       <td><%= trabalhador.telefone %></td>
-      <td><%= trabalhador.data_nascimento %></td>
+      <td><%= trabalhador.data_nascimento.strftime('%d/%m/%Y') %></td>
       <td><%= trabalhador.email %></td>
       <td><%= trabalhador.senha %></td>
       <td><%= trabalhador.profissao %></td>

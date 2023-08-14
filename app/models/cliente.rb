@@ -15,6 +15,10 @@ class Cliente < ApplicationRecord
   end
 
   def nome_completo_e_sobrenome
-    "#{id} #{nome_completo}" # Substitua 'nome' e 'sobrenome' pelos seus atributos reais
+    "#{nome_completo} - #{cpf}"
+  end
+
+  def nome_cpf
+
   end
 end

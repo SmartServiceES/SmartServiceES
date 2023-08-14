@@ -8,7 +8,15 @@ Rails.application.routes.draw do
 
   resources :trabalhadors
   resources :servicos
-  resources :contratos
+  # config/routes.rb
+  # config/routes.rb
+  resources :contratos do
+    collection do
+      get 'search_clientes', to: 'contratos#search_clientes'
+    end
+  end
+
+
   get '/buscar_servicos', to: 'servicos#buscar', as: 'buscar_servicos'
   get '/buscar_clientes', to: 'clientes#buscar', as: 'buscar_clientes'
   get '/buscar_trabalhadors', to: 'trabalhadors#buscar', as: 'buscar_trabalhadors'
