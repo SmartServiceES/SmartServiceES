@@ -25,13 +25,13 @@ Feature: Busca de cliente
 
   Scenario: Busca de cliente por CPF
     Given Eu estou na pagina de listagem de clientes
-    And O cliente com nome completo "Pedro Caitano" data de nascimento "2000-09-14" cpf "72969741091" email "shouldz1@outlook.com" senha "ZECpmdzAKy" telefone "81998436108" rua "Rua Santos Dumount" numero "245" CEP "55715000" Bairro "Jardim santa rosa" cidade "Feira Nova" complemento "Casa" existe
-    When Eu preencho no campo de busca por CPF o CPF "72969741091"
+    And O cliente com nome completo "Pedro Caitano" data de nascimento "2000-09-14" cpf "06006615045" email "shouldz1@outlook.com" senha "ZECpmdzAKy" telefone "81998436108" rua "Rua Santos Dumount" numero "245" CEP "55715000" Bairro "Jardim santa rosa" cidade "Feira Nova" complemento "Casa" existe
+    When Eu preencho no campo de busca por CPF o CPF "06006615045"
     And eu clico em Pesquisar
-    Then eu visualizo o cliente de CPF "72969741091"
+    Then eu visualizo o cliente de CPF "06006615045"
 
   Scenario: Buscar cliente que o cpf não existe
     Given Eu estou na pagina de listagem de clientes
-    And Eu preencho no campo de busca por CPF o CPF "72969741091"
+    And Eu preencho no campo de busca por CPF o CPF "24289604072"
     And eu clico em Pesquisar
-    Then eu visualizo a pagina em branco sem nenhum cliente de CPF "72969741091"
+    Then eu visualizo a pagina em branco sem nenhum cliente de CPF "24289604072"
