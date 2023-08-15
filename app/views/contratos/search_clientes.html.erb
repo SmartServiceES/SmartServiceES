@@ -45,7 +45,6 @@
 
 <h2 class="text-center">Informações da busca: </h2>
 <% if @clientes.present? %>
-  <% @clientes.each do |cliente| %>
     <div id="clientes">
       <div class="d-flex justify-content-center">
         <div class="table-responsive" style="max-width: 1000px;">
@@ -80,7 +79,6 @@
         </div>
       </div>
     </div>
-  <% end %>
 <% else %>
   <p class="text-center">Nenhum cliente encontrado.</p>
 <% end %>
