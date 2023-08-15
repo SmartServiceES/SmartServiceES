@@ -15,19 +15,232 @@
           margin-left: 200px;
           margin-right: 200px;
       }
-      .lead{}
+
+      /*CSS dos cards*/
+
+      .card {
+          --font-color: #323232;
+          --font-color-sub: #666;
+          --bg-color: #fff;
+          --main-color: #323232;
+          --main-focus: #2d8cf0;
+          width: 230px;
+          height: 550px;
+          background: var(--bg-color);
+          border: 2px solid var(--main-color);
+          box-shadow: 4px 4px var(--main-color);
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; /* Alinhamento vertical */
+          text-align: center; /* Alinhamento centralizado do texto */
+          padding: 20px;
+          gap: 10px;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      .card-title {
+          font-size: 18px; /* Tamanho do título */
+          font-weight: 500;
+          color: var(--font-color);
+      }
+      .card-subtitle {
+          font-size: 15px;
+          font-weight: 300;
+          color: var(--font-color-sub);
+          max-height: 150px; /* Limitar a altura da descrição */
+          overflow: hidden; /* Esconder conteúdo que ultrapassa */
+      }
+
+      .card:last-child {
+          justify-content: flex-end;
+      }
+
+      .card-img {
+          /* clear and add new css */
+          transition: all 0.5s;
+          display: flex;
+          justify-content: center;
+      }
+
+      .card-img img {
+          max-width: 100%; /* Ajustar a imagem para o tamanho do container */
+          height: auto;
+      }
+
+      .card-footer {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .card-price {
+          margin-top: 10px;
+          font-size: 10px;
+          font-weight: 500;
+          margin-right: 30px;
+          color: var(--font-color);
+      }
+
+      .card-price span {
+          font-size: 20px;
+          font-weight: 500;
+          color: var(--font-color-sub);
+      }
+
+      .card-btn {
+          height: 35px;
+          background: var(--bg-color);
+          border: 2px solid var(--main-color);
+          border-radius: 5px;
+          padding: 0 15px;
+          transition: all 0.3s;
+      }
+
+      .card-btn svg {
+          width: 100%;
+          height: 100%;
+          fill: var(--main-color);
+          transition: all 0.3s;
+      }
+
+      .card-img:hover {
+          transform: translateY(-3px);
+      }
+
+      .card-btn:hover {
+          border: 2px solid var(--main-focus);
+      }
+
+      .card-btn:hover svg {
+          fill: var(--main-focus);
+      }
+
+      .card-btn:active {
+          transform: translateY(3px);
+      }
+      .service-list {
+          margin-left: 50px;
+          margin-right: 50px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr); /* 4 cards por linha */
+          gap: 20px; /* Espaçamento entre os cards */
+      }
+      .scale-hover {
+          transition: transform 0.3s ease-in-out;
+      }
+
+      .scale-hover:hover {
+          transform: scale(1.05);
+      }
   </style>
 </head>
 <br>
-<h1 class="text-center">Sobre Nós</h1>
-<p class="text-justify">Esta é a página de informações sobre o nosso projeto. </strong> A seguir segue informações sobre o release da nossa nova versão.
-  Qual o objetivo do nosso projeto? O sistema visa conectar trabalhadores independentes com potenciais clientes, deve ter as funcionalidades de cadastrar, editar, remover e visualizar, trabalhadores e clientes, os trabalhadores devem ser capazes de cadastrar, editar, remover e visualizar serviços, onde eles vão poder dar uma explicação sobre o serviço, horário de início e término do serviço ao dia, colocar preço e etc. Os clientes devem ser capazes de visualizar e contratar o serviço (o sistema não deve permitir uma contratação de serviço em um horário já ocupado por outro cliente.). Além disso, para que o sistema tenha segurança para seus usuários, deve existir o usuário administrador capaz de fazer uma pesquisa no sistema tanto para cliente quanto para trabalhador, ser capaz de visualizar, remover usuário e visualizar todas as contratações de um usuário a fim de evitar crimes por parte dos mesmos.
-</p>
-<span class="img-container">
+<h1 class="text-center"><img src="<%= asset_path('logo/logoOnly.png') %>" alt="Descrição da Imagem" align="" width="80" height="80" >
+  Patch notes - Smart Service (att. 15/08/2023)</h1><br>
 
-    <img src="<%= asset_path('shouldz_circulo.png') %>" alt="Dev. Pedro Souza" width="150" height="150" >
-    <p class="lead"><em>Front-end by Pedro Souza</em></p>
-</span>
+<div class="service-list">
+  <div class="card scale-hover">
+    <div class="card-img">
+      <img src="<%= asset_path('logo/logoOnly.png') %>" width="100" height="100" alt="Imagem do serviço">
+      <p> Patch notes - Sprint 01</p>
+    </div>
+    <div class="card-title">
+      <ul style="text-align: left">
+        <li>Setup Github Actions</li>
+        <li>Setup Railway</li>
+        <li>Adição do README básico</li>
+        <li>Criação da instituição SmartService</li>
+        <li>Criação do Product Backlog</li>
+      </ul>
+    </div>
+    <div class="card-subtitle"></div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-primary">
+        <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>
+      </button>
+    </div>
+  </div>
+    <div class="card scale-hover">
+    <div class="card-img">
+      <img src="<%= asset_path('logo/logoOnly.png') %>" width="100" height="100" alt="Imagem do serviço">
+      <p> Patch notes - Sprint 02</p>
+    </div>
+    <div class="card-title">
+      <ul style="text-align: left">
+        <li>Criação do trabalhador</li>
+        <li>Criação de Serviço</li>
+        <li>Criação do front-end</li>
+        <li>Criação da página inicial</li>
+        <li>Validations e associations dos models</li>
+        <li>Testes gerais</li>
+        <li>Mecanimo de busca simples</li>
+      </ul>
+    </div>
+    <div class="card-subtitle"></div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary">
+          <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>
+        </button>
+      </div>
+</div>
+  <div class="card scale-hover">
+    <div class="card-img">
+      <img src="<%= asset_path('logo/logoOnly.png') %>" width="100" height="100" alt="Imagem do serviço">
+      <p> Patch notes - Sprint 03</p>
+    </div>
+    <div class="card-title">
+      <ul style="text-align: left">
+        <li>Criação de contrato</li>
+        <li>Criação de cliente</li>
+        <li>Criação de endereço</li>
+        <li>Mecanismo de busca: Trabalhador</li>
+        <li>Mecanismo de busca complexa: Contrato</li>
+        <li>Melhoria no front-end + identidade visual</li>
+      </ul>
+    </div>
+    <div class="card-subtitle"></div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-primary">
+        <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>
+      </button>
+    </div>
+  </div>
+  <div class="card scale-hover">
+    <div class="card-img">
+      <img src="<%= asset_path('logo/logoOnly.png') %>" width="100" height="100" alt="Imagem do serviço">
+      <p> Patch notes - Sprint 04</p>
+    </div>
+    <div class="card-title">
+      <ul style="text-align: left">
+        <br>
+        <br>
+        <br>
+        <br>
+        <img src="<%= asset_path('logo/cerca.png') %>" width="100" height="100" alt="Imagem do serviço" style="margin-right: 20px">
+        <p style="margin-left: 5px">EM BREVE</p>
 
+        <br>
+        <br>
 
+        <br>
+      </ul>
+    </div>
+    <div class="card-subtitle"></div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-primary">
+        <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>
+      </button>
+    </div>
 
+  </div>
+</div>
+
+    <br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
