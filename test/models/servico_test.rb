@@ -31,7 +31,7 @@ class ServicoTest < ActiveSupport::TestCase
                                   email: 'pedroshouldz@outlook.com',
                                   senha: 'senha123',
                                   profissao: 'Lavador de carro'
-    trabalhador.save
+    assert trabalhador.save
 
     servico = Servico.new nome: 'Lava se Carros e Motos',
                           descricao: 'Lavagem completa de veiculos',
@@ -39,11 +39,9 @@ class ServicoTest < ActiveSupport::TestCase
                           horario_inicio: '2023-08-29 08:00:00',
                           horario_termino: '2023-08-29 12:00:00',
                           trabalhador_id: trabalhador.id
-    servico.save
+    assert servico.save
 
-    servico.update horario_inicio: '2022-08-29 08:00:00', horario_termino: '2022-08-29 12:00:00'
-
-    assert_not servico.save
+    assert_not servico.update horario_inicio: '2022-08-29 08:00:00', horario_termino: '2022-08-29 12:00:00'
 
   end
 
@@ -55,7 +53,7 @@ class ServicoTest < ActiveSupport::TestCase
                                   email: 'pedroshouldz@outlook.com',
                                   senha: 'senha123',
                                   profissao: 'Lavador de carro'
-    trabalhador.save
+    assert trabalhador.save
 
     servico = Servico.new nome: 'Lava-se Carros e Motos',
                           descricao: '5555555555555',
