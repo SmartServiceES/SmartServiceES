@@ -3,8 +3,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes or /clientes.json
   def index
-    @q = Cliente.ransack(params[:q])
-    @clientes = @q.result(distinct: true).all
+    @clientes = Cliente.all
   end
   # BUSCAR
  def buscar
