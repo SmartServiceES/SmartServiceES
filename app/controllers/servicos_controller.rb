@@ -5,6 +5,7 @@ class ServicosController < ApplicationController
   def index
     @q = Servico.ransack(params[:q])
     @servicos = @q.result(distinct: true).all
+    @servicos_contrataveis = Servico.where(contratado: false)
   end
 
   # GET /servicos/1 or /servicos/1.json
