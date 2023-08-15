@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_15_033741) do
   create_table "clientes", force: :cascade do |t|
     t.text "nome_completo"
     t.date "data_nascimento"
@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_152920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "trabalhador_id", null: false
+    t.boolean "contratado", default: false
     t.index ["trabalhador_id"], name: "index_servicos_on_trabalhador_id"
   end
 

@@ -28,10 +28,10 @@ class ContratosController < ApplicationController
   end
 
 
-
   # GET /contratos/new
   def new
     @contrato = Contrato.new
+    @servicos_contrataveis = Servico.where(contratado: false)
   end
 
   # GET /contratos/1/edit
@@ -44,6 +44,7 @@ class ContratosController < ApplicationController
 
     respond_to do |format|
       if @contrato.save
+      @contrato.servico.update(contratado: true )
         format.html { redirect_to contrato_url(@contrato), notice: "Contrato was successfully created." }
         format.json { render :show, status: :created, location: @contrato }
       else
