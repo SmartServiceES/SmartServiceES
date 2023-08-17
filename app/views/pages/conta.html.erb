@@ -1,3 +1,12 @@
-<h1>Ola</h1>
+<head>
 
-<%= link_to "Alterar senha", edit_user_registration_path , data: { turbo_method: :post} %>
+</head>
+<body>
+  <h1 class="text-center">Ola, <%= current_user.email %></h1>
+  <p class="text-center"> Edite sua conta</p>
+  <p class="text-center">
+    <%= link_to "Alterar informações da conta", edit_user_registration_path , data: { turbo_method: :post} %>
+    <%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link active", aria: { current: "page" } %>
+
+  </p>
+</body>
