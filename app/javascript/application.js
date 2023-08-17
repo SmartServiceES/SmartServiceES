@@ -1,0 +1,2 @@
+//= jquery
+//= jquery_ujs
