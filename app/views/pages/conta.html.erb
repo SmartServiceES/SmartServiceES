@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Adicione os links para os estilos do Bootstrap aqui -->
+</head>
+<body>
+<div class="container mt-5">
+  <div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body text-center">
+      <img src="<%= asset_path('iconHome/users.png') %>" alt="Descrição da Imagem" width="100" height="100" style="margin-top: 20px">
+
+      <h1 class="card-title text-center">Olá, <%= current_user.email %></h1>
+      <p class="card-text text-center">Edite sua conta</p>
+      <p class="text-center">
+        <%= link_to "Alterar informações da conta", edit_user_registration_path, data: { turbo_method: :post }, class: "btn btn-primary btn-block" %>
+        <%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-secondary btn-block" %>
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
