@@ -145,7 +145,7 @@
     <div class="col"></div>
   </div>
 </div>
-
+<% if user_signed_in? %>
 <div class="row justify-content-center text-center">
   <div class="col-md-2  mb-4 card-column">
     <div class="card custom-card text-center scale-hover" style="width: 18rem;">
@@ -198,10 +198,15 @@
     </div>
   </div>
 </div>
+
 <br><br>
 <div>
   <h4 class="text-center"> Acesse o roadmap do projeto para mais informações</h4>
 </div>
+<% else %>
+  <br><br>
+  <h4 class="text-center"> Logue para usar o sistema. Você pode verificar as atualizações do sistema clicando no roadmap do projeto.</h4>
+<%end %>
 <br><br><br><br><br><br>
 <footer class="footer mt-auto py-3 bg-light fixed-bottom">
   <div class="container">
