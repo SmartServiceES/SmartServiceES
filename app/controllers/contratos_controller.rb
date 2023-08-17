@@ -3,12 +3,9 @@ class ContratosController < ApplicationController
 
   # GET /contratos or /contratos.json
   def index
-    @contratos = Contrato.all
     @q = Cliente.ransack(params[:q])
     @clientes = @q.result(distinct: true)
     @contratos = Contrato.joins(:cliente).where(clientes: { id: @clientes.pluck(:id) })
-
-
   end
 
   # GET /contratos/1 or /contratos/1.json
@@ -80,7 +77,7 @@ class ContratosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contrato
-      @contrato = Contrato.find(params[:id])
+      @contrato = Contrato.find_by(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

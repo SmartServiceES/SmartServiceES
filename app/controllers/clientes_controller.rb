@@ -7,14 +7,14 @@ class ClientesController < ApplicationController
     @clientes = @q.result(distinct: true).all
   end
   # BUSCAR
- def buscar
-  @q = Cliente.ransack(params[:q])
-  @clientes = @q.result(distinct: true).all
-  respond_to do |format|
-    format.html { render :index }
-    format.json { render :index, status: :ok, location: @servico }
+  def buscar
+    @q = Cliente.ransack(params[:q])
+    @clientes = @q.result(distinct: true).all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :index, status: :ok, location: @servico }
+    end
   end
-end
 
   # GET /clientes/1 or /clientes/1.json
   def show
@@ -74,13 +74,13 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cliente
-      @cliente = Cliente.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cliente
+    @cliente = Cliente.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def cliente_params
-      params.require(:cliente).permit(:nome_completo, :data_nascimento, :cpf, :email, :senha, :telefone, {:endereco_attributes => [:nome_da_rua, :numero_da_casa, :cep, :bairro, :cidade, :complemento]})
-    end
+  # Only allow a list of trusted parameters through.
+  def cliente_params
+    params.require(:cliente).permit(:nome_completo, :data_nascimento, :cpf, :email, :senha, :telefone, {:endereco_attributes => [:nome_da_rua, :numero_da_casa, :cep, :bairro, :cidade, :complemento]})
+  end
 end
