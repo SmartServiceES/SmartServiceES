@@ -124,8 +124,8 @@
                 Conta
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Entrar", new_user_session_path %></li>
-                <li><%= link_to "Criar conta", new_user_registration_path %></li>
+                <li><%= link_to "Entrar", new_user_session_path, class: "nav-link active", aria: { current: "page" } %></li>
+                <li><%= link_to "Criar conta", new_user_registration_path, class: "nav-link active", aria: { current: "page" } %></li>
               </ul>
             <% end %>
           </li>
