@@ -101,6 +101,13 @@
           <li class="nav-item">
             <%= link_to "Roadmap do projeto", sobre_path, class: "nav-link active", aria: { current: "page" } %>
           </li>
+          <% if user_signed_in? %>
+            <p>Logado como: <%= current_user.email %></p>
+            <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+            <%= button_to "Alterar senha", edit_user_password_path %>
+          <% else %>
+            <%= link_to "Entrar", new_user_session_path %>
+          <% end %>
         </ul>
       </div>
 
@@ -199,6 +206,8 @@
 <%= yield %>
 
 </body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
 <footer class="footer mt-auto py-3 bg-light fixed-bottom text-center">
   <div class="container">
