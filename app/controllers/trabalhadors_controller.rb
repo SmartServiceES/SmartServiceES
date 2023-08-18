@@ -2,14 +2,17 @@ class TrabalhadorsController < ApplicationController
   before_action :set_trabalhador, only: %i[ show edit update destroy ]
 
   # GET /trabalhadors or /trabalhadors.json
-  def index
+
+  def trabalhadorResult
     @q = Trabalhador.ransack(params[:q])
     @trabalhadors = @q.result(distinct: true).all
   end
+  def index
+    trabalhadorResult()
+  end
 
   def buscar
-    @q = Trabalhador.ransack(params[:q])
-    @trabalhadors = @q.result(distinct: true).all
+    trabalhadorResult()
     respond_to do |format|
       format.html { render :index }
       format.json { render :index, status: :ok, location: @servico }
