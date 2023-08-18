@@ -2,14 +2,20 @@ class ClientesController < ApplicationController
   before_action :set_cliente, only: %i[ show edit update destroy ]
 
   # GET /clientes or /clientes.json
-  def index
+  def clienteResult
     @q = Cliente.ransack(params[:q])
     @clientes = @q.result(distinct: true).all
   end
+
+  def clienteFind
+    Cliente.find(params[:id])
+  end
+  def index
+    clienteResult()
+  end
   # BUSCAR
   def buscar
-    @q = Cliente.ransack(params[:q])
-    @clientes = @q.result(distinct: true).all
+    clienteResult()
     respond_to do |format|
       format.html { render :index }
       format.json { render :index, status: :ok, location: @servico }
@@ -28,7 +34,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1/edit
   def edit
-    @cliente = Cliente.find(params[:id])
+    @cliente = clienteFind()
   end
 
   # POST /clientes or /clientes.json
@@ -49,7 +55,7 @@ class ClientesController < ApplicationController
 
   # PATCH/PUT /clientes/1 or /clientes/1.json
   def update
-    @cliente = Cliente.find(params[:id])
+    @cliente = clienteFind()
     respond_to do |format|
       if @cliente.update(cliente_params)
         format.html { redirect_to cliente_url(@cliente), notice: "Cliente was successfully updated." }
@@ -63,7 +69,7 @@ class ClientesController < ApplicationController
 
   # DELETE /clientes/1 or /clientes/1.json
   def destroy
-    @cliente = Cliente.find(params[:id])
+    @cliente = clienteFind()
     @cliente.destroy
     @cliente.endereco.destroy
 
@@ -76,7 +82,7 @@ class ClientesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_cliente
-    @cliente = Cliente.find(params[:id])
+    @cliente = clienteFind()
   end
 
   # Only allow a list of trusted parameters through.
