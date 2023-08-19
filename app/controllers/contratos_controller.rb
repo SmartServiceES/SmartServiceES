@@ -16,17 +16,21 @@ class ContratosController < ApplicationController
   def show
   end
 
+  def newContrato
+    @contrato = Contrato.new
+  end
+
   def search_clientes
     resultContratoCliente()
     @contratos = Contrato.all
-    @contrato = Contrato.new
+    newContrato()
     render 'search_clientes'
   end
 
 
   # GET /contratos/new
   def new
-    @contrato = Contrato.new
+    newContrato()
     @servicos_contrataveis = Servico.where(contratado: false)
   end
 
