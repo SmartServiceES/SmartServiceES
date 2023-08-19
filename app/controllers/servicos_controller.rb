@@ -2,9 +2,13 @@ class ServicosController < ApplicationController
   before_action :set_servico, only: %i[ show edit update destroy ]
 
   # GET /servicos or /servicos.json
-  def index
+
+  def servicoResult
     @q = Servico.ransack(params[:q])
     @servicos = @q.result(distinct: true).where(contratado: false)
+  end
+  def index
+    servicoResult()
   end
 
   # GET /servicos/1 or /servicos/1.json
@@ -63,8 +67,7 @@ class ServicosController < ApplicationController
   
  # BUSCAR
  def buscar
-  @q = Servico.ransack(params[:q])
-  @servicos = @q.result(distinct: true).where(contratado: false)
+  servicoResult()
   respond_to do |format|
     format.html { render :index }
     format.json { render :index, status: :ok, location: @servico }
