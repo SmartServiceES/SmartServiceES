@@ -3,8 +3,7 @@ class ContratosController < ApplicationController
 
   # GET /contratos or /contratos.json
   def index
-    @q = Cliente.ransack(params[:q])
-    @clientes = @q.result(distinct: true)
+    buscas()
     @contratos = Contrato.joins(:cliente).where(clientes: { id: @clientes.pluck(:id) })
   end
 
@@ -16,14 +15,13 @@ class ContratosController < ApplicationController
     @contrato = Contrato.new
   end
 
-  # app/controllers/contratos_controller.rb
-  # app/controllers/contratos_controller.rb
-  # app/controllers/contratos_controller.rb
-  # app/controllers/contratos_controller.rb
-  def search_clientes
-    search_params = params[:q]
-    @q = Cliente.ransack(search_params)
+  def buscas
+    @q = Cliente.ransack(params[:q])
     @clientes = @q.result(distinct: true)
+  end
+
+  def search_clientes
+    buscas()
     @contratos = Contrato.all
     newContrato()
     render 'search_clientes'
