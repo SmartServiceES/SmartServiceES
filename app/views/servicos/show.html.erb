@@ -6,12 +6,12 @@
 
 <div class="d-flex justify-content-center" style="margin-bottom: 20px">
   <button class="btn btn-primary custom-button">
-    <%= link_to "Edit this servico", edit_servico_path(@servico), class: "white-text"  %>
+    <%= link_to "Editar serviço", edit_servico_path(@servico), class: "white-text"  %>
   </button>
   <button class="btn btn-primary custom-button">
-    <%= link_to "Back to servicos", servicos_path, class: "white-text" %>
+    <%= link_to "Retornar a listagem", servicos_path, class: "white-text" %>
   </button>
-  <%= button_to "Destroy this servico", @servico, method: :delete , class: "white-text btn btn-primary custom-button"%>
+  <%= button_to "Apagar serviço", @servico, method: :delete , class: "white-text btn btn-primary custom-button"%>
 
 </div>
 <h3 class="contorno-texto" style="color: green;text-align: center"><%= notice %></h3>

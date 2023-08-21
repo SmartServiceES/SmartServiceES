@@ -118,7 +118,9 @@
             <td><%= contrato.servico.nome %></td>
             <td><%= contrato.cliente.nome_completo %></td>
             <td><%= contrato.servico.trabalhador.nome_completo %></td>
-            <td><%= link_to "Show this contrato", contrato %></td>
+            <td>
+              <%= button_to "Detalhes do contrato", contrato, class: "white-text btn btn-primary btn-sm" %>
+            </td>
           </tr>
         <% end %>
         </tbody>
