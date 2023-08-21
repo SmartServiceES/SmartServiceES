@@ -118,7 +118,9 @@
             <td><%= contrato.servico.nome %></td>
             <td><%= contrato.cliente.nome_completo %></td>
             <td><%= contrato.servico.trabalhador.nome_completo %></td>
-            <td><%= link_to "Show this contrato", contrato %></td>
+            <td>
+              <%= button_to "Detalhes do contrato", contrato, class: "white-text btn btn-primary btn-sm" %>
+            </td>
           </tr>
         <% end %>
         </tbody>
@@ -158,7 +160,7 @@
 <div class="d-flex justify-content-center">
   <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-primary">
-      <%= link_to "New contrato", new_contrato_path, class: "white-text" %>
+      <%= link_to "Novo contrato", new_contrato_path, class: "white-text" %>
     </button>
     <button type="button" class="btn btn-primary">
       <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>

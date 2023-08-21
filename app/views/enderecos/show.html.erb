@@ -3,8 +3,8 @@
 <%= render @endereco %>
 
 <div>
-  <%= link_to "Edit this endereco", edit_endereco_path(@endereco) %> |
-  <%= link_to "Back to enderecos", enderecos_path %>
+  <%= link_to "Editar endereço", edit_endereco_path(@endereco) %> |
+  <%= link_to "Retornar a listagem", enderecos_path %>
 
-  <%= button_to "Destroy this endereco", @endereco, method: :delete %>
+  <%= button_to "Apagar endereço", @endereco, method: :delete %>
 </div>
