@@ -1,4 +1,4 @@
-![readme](app/assets/images/readme.png)
+![readme](app/assets/images/readme_final.png)
 
 ## 🔗 Links relacionados
 *   [Ruby](https://www.ruby-lang.org/pt/)
