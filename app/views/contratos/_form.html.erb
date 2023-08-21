@@ -35,7 +35,7 @@
       <%= form.label :servico_id, class: 'form-label' do %>
         Serviço:
       <% end %>
-      <%= form.collection_select(:servico_id, Servico.all, :id, :nome_completo_e_sobrenome, {:selected => @contrato.servico_id}, { class: 'form-control', style: 'width: 300px;', placeholder: 'Selecione um trabalhador' }) %>
+      <%= form.collection_select(:servico_id, Servico.where(contratado: false), :id, :nome_completo_e_sobrenome, {:selected => @contrato.servico_id}, { class: 'form-control', style: 'width: 300px;', placeholder: 'Selecione um trabalhador' }) %>
     </div>
   </div>
 
