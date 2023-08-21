@@ -11,6 +11,11 @@ class ContratosController < ApplicationController
   # GET /contratos/1 or /contratos/1.json
   def show
   end
+
+  def newContrato
+    @contrato = Contrato.new
+  end
+
   # app/controllers/contratos_controller.rb
   # app/controllers/contratos_controller.rb
   # app/controllers/contratos_controller.rb
@@ -20,12 +25,12 @@ class ContratosController < ApplicationController
     @q = Cliente.ransack(search_params)
     @clientes = @q.result(distinct: true)
     @contratos = Contrato.all
-    @contrato = Contrato.new
+    newContrato()
     render 'search_clientes'
   end
   # GET /contratos/new
   def new
-    @contrato = Contrato.new
+    newContrato()
     @servicos_contrataveis = Servico.where(contratado: false)
   end
   # GET /contratos/1/edit
