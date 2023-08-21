@@ -2,12 +2,14 @@ class ContratosController < ApplicationController
   before_action :set_contrato, only: %i[ show edit update destroy ]
 
   # GET /contratos or /contratos.json
-  def index
+  def resultContratoCliente
     @q = Cliente.ransack(params[:q])
     @clientes = @q.result(distinct: true)
     @contratos = Contrato.joins(:cliente).where(clientes: { id: @clientes.pluck(:id) })
+  end
 
-
+  def index
+    resultContratoCliente
   end
 
   # GET /contratos/1 or /contratos/1.json
