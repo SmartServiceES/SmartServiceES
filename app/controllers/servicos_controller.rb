@@ -27,9 +27,11 @@ class ServicosController < ApplicationController
   # POST /servicos or /servicos.json
   def create
     @trabalhador = Trabalhador.find(servico_params[:trabalhador_id])
-    @servico = @trabalhador.servicos.build(servico_params)
+    @servico = Servico.new(servico_params)
 
-      respond_to do |format|
+    @trabalhador.servicos << @servico
+
+    respond_to do |format|
       if @servico.save
         format.html { redirect_to servico_url(@servico), notice: "Servico was successfully created." }
         format.json { render :show, status: :created, location: @servico }

@@ -5,20 +5,33 @@ class ContratosController < ApplicationController
   def resultContratoCliente
     @q = Cliente.ransack(params[:q])
     @clientes = @q.result(distinct: true)
-    @contratos = Contrato.joins(:cliente).where(clientes: { id: @clientes.pluck(:id) })
   end
 
   def index
-    resultContratoCliente
+    resultContratoCliente()
+    @contratos = Contrato.joins(:cliente).where(clientes: { id: @clientes.pluck(:id) })
   end
 
   # GET /contratos/1 or /contratos/1.json
   def show
   end
 
+  def newContrato
+    @contrato = Contrato.new
+  end
+
+  def search_clientes
+    resultContratoCliente()
+    @contratos = Contrato.all
+    newContrato()
+    render 'search_clientes'
+  end
+
+
   # GET /contratos/new
   def new
-    @contrato = Contrato.new
+    newContrato()
+    @servicos_contrataveis = Servico.where(contratado: false)
   end
 
   # GET /contratos/1/edit
@@ -31,6 +44,7 @@ class ContratosController < ApplicationController
 
     respond_to do |format|
       if @contrato.save
+      @contrato.servico.update(contratado: true )
         format.html { redirect_to contrato_url(@contrato), notice: "Contrato was successfully created." }
         format.json { render :show, status: :created, location: @contrato }
       else
@@ -64,13 +78,13 @@ class ContratosController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_contrato
-    @contrato = Contrato.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_contrato
+      @contrato = Contrato.find_by(params[:id])
+    end
 
-  # Only allow a list of trusted parameters through.
-  def contrato_params
-    params.fetch(:contrato, {}).permit(:cliente_id, :servico_id)
-  end
+    # Only allow a list of trusted parameters through.
+    def contrato_params
+      params.fetch(:contrato, {}).permit(:cliente_id, :servico_id)
+    end
 end

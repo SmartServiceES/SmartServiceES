@@ -1,0 +1,86 @@
+<!-- app/views/contratos/search_clientes.html.erb -->
+<br>
+<div class="d-flex justify-content-center">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary">
+      <%= link_to "New contrato", new_contrato_path, class: "white-text" %>
+    </button>
+    <button type="button" class="btn btn-primary">
+      <%= link_to "Retornar ao index", contratos_path, class: "white-text" %>
+    </button>
+    <button type="button" class="btn btn-primary">
+      <%= link_to "Pagina inicial", home_index_path, class: "white-text"%>
+    </button>
+  </div>
+</div>
+<h2 class="text-center">Novo contrato</h2>
+<p class="text-center">Verifique as informações do cliente que buscou para prosseguir</p>
+<%= render "contratos/form", contrato: @contrato %>
+
+<h2 class="text-center">Listagem de todos os contratos </h2>
+  <div class="d-flex justify-content-center">
+    <div class="table-responsive" style="max-width: 1000px;">
+      <table class="table rounded-table">
+        <thead>
+        <tr>
+          <th scope="col">Serviço</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Trabalhador</th>
+          <th scope="col">Visualizar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @contratos.each do |contrato| %>
+          <tr>
+            <td> <%= contrato.servico.nome %></td>
+            <td> <%= contrato.cliente.nome_completo %></td>
+            <td> <%= contrato.servico.trabalhador.nome_completo %></td>
+            <td><%= link_to "Show this contrato", contrato %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<h2 class="text-center">Informações da busca: </h2>
+<% if @clientes.present? %>
+    <div id="clientes">
+      <div class="d-flex justify-content-center">
+        <div class="table-responsive" style="max-width: 1000px;">
+          <table class="table rounded-table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome completo</th>
+              <th scope="col">Data de Nascimento</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Email</th>
+              <th scope="col">Senha</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">Visualizar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @clientes.each_with_index do |cliente, index| %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= cliente.nome_completo %></td>
+                <td><%= cliente.data_nascimento %></td>
+                <td><%= cliente.cpf %></td>
+                <td><%= cliente.email %></td>
+                <td><%= cliente.senha %></td>
+                <td><%= cliente.telefone %></td>
+                <td> <%= link_to "Show this cliente", cliente %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+<% else %>
+  <p class="text-center">Nenhum cliente encontrado.</p>
+<% end %>
+<br><br><br>
+<br>
