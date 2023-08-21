@@ -25,25 +25,14 @@
       }
       .InputContainer {
           text-align: center;
-          /* Defina a largura desejada para a barra de busca */
-          width: 300px; /* Por exemplo, 300px */
-          position: fixed;
-          top: 400px;
-          right: 10px;
-          /* Resto do seu código CSS... */
-      }
-      .InputContainer2 {
-          text-align: center;
-          /* Defina a largura desejada para a barra de busca */
-          width: 300px; /* Por exemplo, 300px */
+          width: 320px;
           position: fixed;
           top: 500px;
           right: 10px;
-          /* Resto do seu código CSS... */
       }
 
       .Btn {
-          left: 82px;
+          left: 92px;
           top: 2px;
           width: 130px;
           height: 40px;
@@ -97,7 +86,7 @@
 </head>
 <body>
 <p style="color: green"><%= notice %></p>
-<h2 class="text-center">Listagem de todos os contratos</h2><br>
+
 <div id="contratos">
   <div class="d-flex justify-content-center">
     <div class="table-responsive" style="max-width: 1000px;">
@@ -115,10 +104,10 @@
         <% @contratos.each_with_index do |contrato, index| %>
           <tr>
             <th scope="row"><%= index + 1 %></th>
-            <td><%= contrato.servico.nome %></td>
-            <td><%= contrato.cliente.nome_completo %></td>
-            <td><%= contrato.servico.trabalhador.nome_completo %></td>
-            <td><%= link_to "Show this contrato", contrato %></td>
+            <td> <%= contrato.servico.nome %></td>
+            <td> <%= contrato.cliente.nome_completo %></td>
+            <td> <%= contrato.servico.trabalhador.nome_completo %></td>
+            <td> <%= link_to "Show this trabalhador", contrato %></td>
           </tr>
         <% end %>
         </tbody>
@@ -128,27 +117,13 @@
 </div>
 
 <div class="InputContainer">
-  <%= search_form_for @q, url: search_clientes_contratos_url, html: { class: 'search-form' } do |f| %>
-    <%= f.label :cpf, "", class: 'labelforsearch' do %>
+  <%= search_form_for @q, url: contratos_path,  html: { class: 'search-form' } do |f| %>
+    <%= f.label :nome_completo, "", class: 'labelforsearch' do %>
       <svg viewBox="0 0 512 512" class="searchIcon">
         <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
       </svg>
     <% end %>
-    <%= f.search_field :nome_completo_cont, class: 'input', placeholder: 'Pesquisa nome do cliente'%>
-    <button class="Btn">
-      Pesquisar
-    </button>
-  <% end %>
-</div>
-
-<div class="InputContainer2">
-  <%= search_form_for @q, url: search_clientes_contratos_url, html: { class: 'search-form' } do |f| %>
-    <%= f.label :cpf, "", class: 'labelforsearch' do %>
-      <svg viewBox="0 0 512 512" class="searchIcon">
-        <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
-      </svg>
-    <% end %>
-    <%= f.search_field :cpf_cont, class: 'input', placeholder: 'Pesquisa cpf do cliente'%>
+    <%= f.search_field :nome_completo_cont, class: 'input', placeholder: 'Pesquisa por nome do cliente'%>
     <button class="Btn">
       Pesquisar
     </button>
@@ -168,4 +143,3 @@
 
 </body>
 <p style="color: green"><%= notice %></p>
-
