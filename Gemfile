@@ -2,6 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.1"
+gem 'factory_bot_rails'
 
 gem 'ransack'
 
@@ -74,6 +75,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'devise'
 
   gem "cucumber-rails", require: false
   gem "database_cleaner"
