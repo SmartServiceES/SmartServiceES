@@ -38,8 +38,7 @@
 
         .form-container label {
             color: rgb(40, 42, 44);
-            margin-top: 50px;
-
+            margin-top: 10px;
             font-size: 15px;
         }
 
@@ -73,23 +72,22 @@
         <p>Cadastro</p>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
-          <form class="form">
+          <form class="form" disabled>
             <div class="field">
               <%= f.label :email %>
-              <%= f.email_field :email, class: 'form-control', placeholder: "Digite seu e-mail" %>
+              <%= f.email_field :email, class: 'form-control', placeholder: "Cadastro indisponivel", disabled: true %>
             </div>
 
-            <div class="field">
+            <div class="field" >
               <%= f.label :password %>
               <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimos)</em>
               <% end %><br />
-              <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Digite sua senha" %>
+              <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Cadastro indisponivel" , disabled: true%>
             </div>
             <div class="col-12 text-center">
-              <%= f.submit 'Salvar', class: 'btn btn-primary btn-lg'%>
+              <%= f.label 'Salvar', class: 'btn btn-primary btn-lg'%>
             </div>
-
           </form>
         <% end %>
       </div>

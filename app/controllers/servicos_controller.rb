@@ -81,6 +81,6 @@ end
 
     # Only allow a list of trusted parameters through.
   def servico_params
-    params.require(:servico).permit(:nome, :descricao, :valor, :categoria, :horario_inicio, :horario_termino, :trabalhador_id)
+    params.require(:servico).permit(:nome, :descricao, :valor, :categoria, :horario_inicio, :horario_termino, :trabalhador_id, :pix)
   end
 end

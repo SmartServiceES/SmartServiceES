@@ -1,5 +1,11 @@
 #Criar cliente valido
 Given('Eu estou na pagina de registrar clientes' )do
+
+  visit '/users/sign_up'
+  fill_in 'user[email]', with: 'testando@gmail.com'
+  fill_in 'user[password]', with: '1234567'
+  click_link_or_button 'Salvar'
+
   visit '/clientes/new'
   expect(page).to have_current_path('/clientes/new')
 end
