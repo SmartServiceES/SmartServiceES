@@ -33,21 +33,23 @@
   <div class="col-md-6 form-field">
     <div class="mb-3">
       <%= form.label :servico_id, class: 'form-label' do %>
-        Serviço:
-      <% end %>
+       Serviço:
+      <%end %>
       <%= form.collection_select(:servico_id, Servico.where(contratado: false), :id, :nome_completo_e_sobrenome, {:selected => @contrato.servico_id}, { class: 'form-control', style: 'width: 300px;', placeholder: 'Selecione um trabalhador' }) %>
     </div>
   </div>
 
   <div class="col-12 text-center">
     <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
+    <button class="btn btn-primary btn-lg custom-button">
+      <%= link_to "Retornar a listagem", contratos_path , class: "white-text" %>
+    </button>
+    <button class="btn btn-primary btn-lg custom-button">
+      <%= link_to "Exbir serviços", servicos_path , class: "white-text" %>
+    </button>
   </div>
 <% end %>
-
-
 <br>
-<div class="d-flex justify-content-center">
-  <button class="btn btn-primary custom-button">
-    <%= link_to "Retornar a listagem", contratos_path , class: "white-text" %>
-  </button>
-</div>
+
+
+
