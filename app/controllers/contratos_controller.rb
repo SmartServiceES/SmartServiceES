@@ -75,6 +75,6 @@ class ContratosController < ApplicationController
   end
   # Only allow a list of trusted parameters through.
   def contrato_params
-    params.fetch(:contrato, {}).permit(:cliente_id, :servico_id, :pix)
+    params.fetch(:contrato, {}).permit(:cliente_id, :servico_id, :pix, :status)
   end
 end

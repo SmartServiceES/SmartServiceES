@@ -39,6 +39,25 @@
     </div>
   </div>
 
+  <div class="col-md-6 form-field text-center">
+    <div class="mb-3">
+      <%= form.label :status, class: 'form-label' do %>
+        Status:
+      <% end %>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary active">
+          <%= form.radio_button :status, "Em aberto", checked: true %>
+          Em Aberto
+        </label>
+        <label class="btn btn-primary">
+          <%= form.radio_button :status, "Concluido" %>
+          Concluído
+        </label>
+      </div>
+    </div>
+  </div>
+
+
   <div class="col-12 text-center">
     <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
     <button class="btn btn-primary btn-lg custom-button">
