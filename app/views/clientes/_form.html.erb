@@ -124,10 +124,14 @@
     </div>
   <% end %>
 
-    <div class="col-12 text-center">
+  <div class="col-12 text-center">
     <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
+    <button class="btn btn-primary btn-lg custom-button">
+      <%= link_to "Retornar a listagem", clientes_path , class: "white-text" %>
+    </button>
   </div>
 <% end %>
+<br><br>
 
 
 
