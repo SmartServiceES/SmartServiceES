@@ -6,7 +6,7 @@
   </style>
 </head>
 <div class="d-flex justify-content-center">
-  <div class="table-responsive" style="max-width: 1000px;">
+  <div class="table-responsive" style="max-width: 1500px;">
     <table class="table rounded-table">
       <thead>
       <tr>
@@ -18,6 +18,7 @@
         <th scope="col">Horario de inicio</th>
         <th scope="col">Horario de termino</th>
         <th scope="col">Trabalhador</th>
+        <th scope="col" style="text-align: center;">Pix</th>
       </tr>
       </thead>
       <tbody>
@@ -30,8 +31,10 @@
           <td><%= servico.horario_inicio.strftime('%d/%m/%Y as %H:%M:%S') %></td>
           <td><%= servico.horario_termino.strftime('%d/%m/%Y as %H:%M:%S') %></td>
           <td><%= servico.trabalhador.nome_completo %></td>
+          <td><%= image_tag @servico.pix, style: 'max-width: 400px; max-height: 400px;' %></td>
         </tr>
       </tbody>
     </table>
+
   </div>
 </div>

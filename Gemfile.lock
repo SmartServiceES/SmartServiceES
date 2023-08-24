@@ -157,6 +157,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (1.2.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -180,6 +183,7 @@ GEM
     mime-types (3.5.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2023.0808)
+    mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.19.0)
     msgpack (1.7.2)
@@ -271,6 +275,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.12.1)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     rubyzip (2.3.2)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -333,6 +339,7 @@ DEPENDENCIES
   debug
   devise
   factory_bot_rails
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   pg

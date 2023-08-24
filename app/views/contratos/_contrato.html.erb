@@ -10,6 +10,7 @@
         <th scope="col">Valor</th>
         <th scope="col">Data de inicio</th>
         <th scope="col">Data de entrega</th>
+        <th scope="col" style="text-align: center;">Pix</th>
       </tr>
       </thead>
       <tbody>
@@ -20,8 +21,10 @@
           <td> <%= contrato.servico.valor %></td>
           <td> <%= contrato.servico.horario_inicio.strftime('%d/%m/%Y as %H:%M:%S') %></td>
           <td> <%= contrato.servico.horario_termino.strftime('%d/%m/%Y as %H:%M:%S') %></td>
+          <td><%= image_tag @contrato.servico.pix, style: 'max-width: 400px; max-height: 400px;' %></td>
         </tr>
       </tbody>
+
     </table>
   </div>
 </div>
