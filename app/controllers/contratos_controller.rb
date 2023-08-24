@@ -11,9 +11,9 @@ class ContratosController < ApplicationController
   def show
   end
 
-  # def newContrato
-  #   @contrato = Contrato.new
-  # end
+  def newContrato
+    @contrato = Contrato.new
+  end
 
   def buscas
     @q = Cliente.ransack(params[:q])
@@ -23,12 +23,12 @@ class ContratosController < ApplicationController
   def search_clientes
     buscas()
     @contratos = Contrato.all
-    @contrato = Contrato.new
+    newContrato()
     render 'search_clientes'
   end
   # GET /contratos/new
   def new
-    @contrato = Contrato.new
+    newContrato()
     @servicos_contrataveis = Servico.where(contratado: false)
   end
   # GET /contratos/1/edit
@@ -71,10 +71,10 @@ class ContratosController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_contrato
-    @contrato = Contrato.find(params[:id])
+    @contrato = Contrato.find_by(params[:id])
   end
   # Only allow a list of trusted parameters through.
   def contrato_params
-    params.fetch(:contrato, {}).permit(:cliente_id, :servico_id, :pix)
+    params.fetch(:contrato, {}).permit(:cliente_id, :servico_id)
   end
 end

@@ -81,13 +81,6 @@
       <%= form.collection_select(:trabalhador_id, Trabalhador.all, :id, :nome_completo, { selected: @servico.trabalhador_id }, { class: 'form-control', style: 'width: 300px; margin-left: 300px;', placeholder: 'Selecione um trabalhador' }) %>
     </div>
   </div>
-  <div class="col-md-6 form-field">
-    <%= form.label :pix, class: 'form-label', style: 'width: 300px;' do %>
-      Pix
-    <% end %>
-    <%= form.file_field :pix, class: 'form-control', style: 'width: 300px;',placeholder: 'Envie seu pix'%>
-  </div>
-
 
   <div class="col-12 text-center">
     <%= form.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
