@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get '/buscar_clientes', to: 'clientes#buscar', as: 'buscar_clientes'
     get '/buscar_trabalhadors', to: 'trabalhadors#buscar', as: 'buscar_trabalhadors'
     post '/send_email', to: 'contratos#send_email'
+    get '/whatsapp', to: 'pages#whatsapp', as: 'whatsapp'
 
 
   end

@@ -4,6 +4,7 @@
         height: 200px;
         font-size: 16px; /* Ajuste o valor conforme necessário */
     }
+
 </style>
 <h2 class="text-center">Informações deste contrato</h2>
 <div class="d-flex justify-content-center">
@@ -18,7 +19,7 @@
         <th scope="col">Data de inicio</th>
         <th scope="col">Data de entrega</th>
         <th scope="col">Status do contrato</th>
-        <th scope="col">Notificar trabalhador</th>
+        <th scope="col">Notificar partes do contrato</th>
         <th scope="col" style="text-align: center;">Pix</th>
       </tr>
       </thead>
@@ -32,9 +33,17 @@
           <td> <%= contrato.servico.horario_termino.strftime('%d/%m/%Y as %H:%M:%S') %></td>
           <td> <%= contrato.status %></td>
           <td>
-            <%= link_to 'Enviar E-mail para o Trabalhador',
-                        "mailto:#{contrato.servico.trabalhador.email}?subject=Smart%20Service%20-%20Atualização%20de%20Serviço&body=Olá,%20#{contrato.servico.trabalhador.nome_completo}%0A%0AVocê%20tem%20atualizações%20no%20seu%20serviço:%20#{contrato.servico.nome}.%0A%0A- Cliente:%20#{contrato.cliente.nome_completo}%0A- Valor%20do%20serviço:%20#{contrato.servico.valor}%0A- Contato%20do%20cliente:%20#{contrato.cliente.telefone}%0A- Status%20atual:%20#{contrato.status}%0A%0AVisite%20a%20smart%20service%20para%20mais%20informações%0A%0AAtt,%0ASmartService%20-%20O%20proximo%20passo%20no%20gerenciamento%20de%20serviço%0A*Esse%20email%20é%20automático,%20por%20favor%20não%20responda",
-                        class: 'btn btn-primary', id: 'emailLink' %>
+            <%= link_to "mailto:#{contrato.servico.trabalhador.email}?subject=Smart%20Service%20-%20Atualização%20de%20Serviço&body=Olá,%20#{contrato.servico.trabalhador.nome_completo}%0A%0AVocê%20tem%20atualizações%20no%20seu%20serviço:%20#{contrato.servico.nome}.%0A%0A- Cliente:%20#{contrato.cliente.nome_completo}%0A- Valor%20do%20serviço:%20#{contrato.servico.valor}%0A- Contato%20do%20cliente:%20#{contrato.cliente.telefone}%0A- Status%20atual:%20#{contrato.status}%0A%0AVisite%20a%20smart%20service%20para%20mais%20informações%0A%0AAtt,%0ASmartService%20-%20O%20próximo%20passo%20no
+gerenciamento%20de%20serviço%0A*Esse%20email%20é%20automático,%20por%20favor%20não%20responda",
+                        class: 'btn btn-primary', id: 'emailLink' do %>
+              <%= image_tag asset_path('iconHome/email.png'), style: 'height: 32px; weight: 32px;', alt: 'Email Icon', class: 'email-icon' %>
+              Enviar E-mail para o Trabalhador
+            <% end %>
+
+            <%= link_to whatsapp_url(phone_number: contrato.cliente.telefone, message: 'SUA_MENSAGEM'), style: 'margin-top: 10px;',target: '_blank', class: 'btn btn-primary' do %>
+              <%= image_tag asset_path('iconHome/whatsapp.png'), style: 'height: 32px; weight: 32px;', alt: 'WhatsApp Icon', class: 'whatsapp-icon' %>
+              Mensagem no WhatsApp do cliente
+            <% end %>
           </td>
           <td> <%= image_tag @contrato.servico.pix, style: 'max-width: 400px; max-height: 400px;' %></td>
         </tr>

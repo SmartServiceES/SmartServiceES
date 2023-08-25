@@ -305,6 +305,7 @@ GEM
       railties (>= 6.0.0)
     sys-uname (1.2.3)
       ffi (~> 1.1)
+    test_helper (0.0.1)
     thor (1.2.2)
     timeliness (0.4.5)
     timeout (0.4.0)
@@ -367,6 +368,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  test_helper
   turbo-rails
   tzinfo-data
   validates_timeliness (~> 6.0.0.beta2)!
