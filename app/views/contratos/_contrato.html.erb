@@ -1,4 +1,10 @@
-
+<style>
+    .toast {
+        width: 430px; /* Ajuste o valor conforme necessário */
+        height: 200px;
+        font-size: 16px; /* Ajuste o valor conforme necessário */
+    }
+</style>
 <h2 class="text-center">Informações deste contrato</h2>
 <div class="d-flex justify-content-center">
   <div class="table-responsive" style="max-width: 1500px;">
@@ -27,9 +33,8 @@
           <td> <%= contrato.status %></td>
           <td>
             <%= link_to 'Enviar E-mail para o Trabalhador',
-                        "mailto:#{contrato.servico.trabalhador.email}?subject=Smar%20Service%20-%20Atualização%20de%20Serviço&body=Olá,%20#{contrato.servico.trabalhador.nome_completo}%0A%0AVocê%20tem%20atualizações%20no%20seu%20serviço:%20#{contrato.servico.nome}.%0A%0A- Cliente:%20#{contrato.cliente.nome_completo}%0A- Valor%20do%20serviço:%20#{contrato.servico.valor}%0A- Contato%20do%20cliente:%20#{contrato.cliente.telefone}%0A- Status%20atual:%20#{contrato.status}%0A%0AVisite%20a%20smart%20service%20para%20mais%20informações%0A%0AAtt,%0ASmartService%20-%20O%20proximo%20passo%20no%20gerenciamento%20de%20serviço%0A*Esse%20email%20é%20automatico,%20por%20favor%20não%20responda",
-                        class: 'btn btn-primary' %>
-
+                        "mailto:#{contrato.servico.trabalhador.email}?subject=Smart%20Service%20-%20Atualização%20de%20Serviço&body=Olá,%20#{contrato.servico.trabalhador.nome_completo}%0A%0AVocê%20tem%20atualizações%20no%20seu%20serviço:%20#{contrato.servico.nome}.%0A%0A- Cliente:%20#{contrato.cliente.nome_completo}%0A- Valor%20do%20serviço:%20#{contrato.servico.valor}%0A- Contato%20do%20cliente:%20#{contrato.cliente.telefone}%0A- Status%20atual:%20#{contrato.status}%0A%0AVisite%20a%20smart%20service%20para%20mais%20informações%0A%0AAtt,%0ASmartService%20-%20O%20proximo%20passo%20no%20gerenciamento%20de%20serviço%0A*Esse%20email%20é%20automático,%20por%20favor%20não%20responda",
+                        class: 'btn btn-primary', id: 'emailLink' %>
           </td>
           <td> <%= image_tag @contrato.servico.pix, style: 'max-width: 400px; max-height: 400px;' %></td>
         </tr>
@@ -38,3 +43,49 @@
     </table>
   </div>
 </div>
+
+<div class="toast-container position-static">
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="<%= asset_path('icone/favicon-16x16.png') %>" class="rounded me-2" alt="...">
+      <strong class="me-auto">Notificando trabalhador</strong>
+      <small class="text-body-secondary">2 segundos atrás</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      O e-mail contendo informações essenciais, e notificando o trabalhador sobre atualizações referentes ao seu serviço,
+      irá ser aberto no seu provedor de e-mail.
+    </div>
+  </div>
+
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="<%= asset_path('icone/favicon-16x16.png') %>" class="rounded me-2" alt="...">
+      <strong class="me-auto">Notificando trabalhador</strong>
+      <small class="text-body-secondary">Agora</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Certifique-se de estar logado na conta de e-mail da smart service e envie
+      o e-mail para o trabalhador.
+    </div>
+  </div>
+</div>
+
+<script>
+    document.getElementById('emailLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        var toastContainer = document.querySelector('.toast-container');
+        toastContainer.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3');
+
+        var toasts = toastContainer.querySelectorAll('.toast');
+        toasts.forEach(function(toastElement) {
+            var toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        });
+
+        setTimeout(function() {
+            window.location.href = event.target.href;
+        }, 3000);
+    });
+</script>
