@@ -36,15 +36,7 @@ class TrabalhadorsController < ApplicationController
   def create
     @trabalhador = Trabalhador.new(trabalhador_params)
 
-    respond_to do |format|
-      if @trabalhador.save
-        format.html { redirect_to trabalhador_url(@trabalhador), notice: "Trabalhador was successfully created." }
-        format.json { render :show, status: :created, location: @trabalhador }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @trabalhador.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_create(@trabalhador)
   end
 
   # PATCH/PUT /trabalhadors/1 or /trabalhadors/1.json
@@ -80,4 +72,16 @@ class TrabalhadorsController < ApplicationController
     def trabalhador_params
       params.require(:trabalhador).permit(:nome_completo, :telefone, :data_nascimento, :email, :senha, :profissao, :avatar)
     end
+
+  def respond_to_create(trabalhador)
+    respond_to do |format|
+      if trabalhador.save
+        format.html { redirect_to trabalhador_url(trabalhador), notice: "Trabalhador was successfully created." }
+        format.json { render :show, status: :created, location: trabalhador }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: trabalhador.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end
