@@ -1,29 +1,98 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Adicione links para seus estilos CSS aqui -->
+    <style>
+        .centered-wrapper {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            height: 80vh; /* Ocupa a altura total da janela */
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        }.form-container {
+             width: 300px;
+             background: linear-gradient(180deg,rgb(0, 183, 255) 25%,rgb(255, 255, 255) 20%);
+             height: 350px;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             position: relative;
+         }
 
-  <div class="field">
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-  </div>
+        .form {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+        }
 
-  <div class="field">
-    <p><%= f.label :password %></p>
-    <% if @minimum_password_length %>
-      <p><em>(<%= @minimum_password_length %> characters minimum)</em></p>
-    <% end %>
-    <p><%= f.password_field :password, autocomplete: "new-password" %></p>
-  </div>
+        .form-container p {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            font-size: 30px;
+            font-weight: 900;
+            color: rgb(255, 255, 255);
+        }
 
-  <div class="field">
-    <p><%= f.label :password_confirmation %></p>
-    <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
-  </div>
+        .form-container label {
+            color: rgb(40, 42, 44);
+            margin-top: 10px;
+            font-size: 15px;
+        }
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        .form-container .input {
+            padding: 10px;
+            height: 35px;
+            border: none;
+            background-color: rgb(224, 231, 236);
+        }
 
-<%= render "devise/shared/links" %>
+        .form-container .input:focus {
+            outline: none;
+        }
+
+        .form-container button {
+            border: none;
+            height: 35px;
+            margin-top: 20px;
+            background-color: rgb(0, 183, 255);
+            color: white;
+            font-size: 16px;
+        }
+        .col-12{
+            margin-top: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="centered-wrapper">
+      <div class="form-container">
+        <p>Cadastro</p>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <form class="form" disabled>
+            <div class="field">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control', placeholder: "Cadastro indisponivel", disabled: true %>
+            </div>
+
+            <div class="field" >
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimos)</em>
+              <% end %><br />
+              <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Cadastro indisponivel" , disabled: true%>
+            </div>
+            <div class="col-12 text-center">
+              <%= f.label 'Salvar', class: 'btn btn-primary btn-lg'%>
+            </div>
+          </form>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
+
+
