@@ -15,6 +15,15 @@ class ContratosController < ApplicationController
   #   @contrato = Contrato.new
   # end
 
+  def send_email
+    Rails.logger.debug "Received send_email POST request"
+    email = params[:email]
+    # Aqui você pode usar o Action Mailer para enviar o e-mail
+    UserMailer.email_to_worker(email).deliver_now
+    flash[:notice] = 'E-mail enviado com sucesso!'
+    redirect_to contrato_path(params[:id]) # Redireciona de volta para a página de contrato
+  end
+
   def buscas
     @q = Cliente.ransack(params[:q])
     @clientes = @q.result(distinct: true)

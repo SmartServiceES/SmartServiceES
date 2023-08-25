@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     get '/buscar_servicos', to: 'servicos#buscar', as: 'buscar_servicos'
     get '/buscar_clientes', to: 'clientes#buscar', as: 'buscar_clientes'
     get '/buscar_trabalhadors', to: 'trabalhadors#buscar', as: 'buscar_trabalhadors'
+    post '/send_email', to: 'contratos#send_email'
+
+
   end
   get 'home/index'
   get 'sobre', to: 'pages#sobre'
