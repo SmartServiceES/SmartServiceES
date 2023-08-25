@@ -40,10 +40,12 @@ gerenciamento%20de%20serviço%0A*Esse%20email%20é%20automático,%20por%20favor%
               Enviar E-mail para o Trabalhador
             <% end %>
 
-            <%= link_to whatsapp_url(phone_number: contrato.cliente.telefone, message: 'SUA_MENSAGEM'), style: 'margin-top: 10px;',target: '_blank', class: 'btn btn-primary' do %>
-              <%= image_tag asset_path('iconHome/whatsapp.png'), style: 'height: 32px; weight: 32px;', alt: 'WhatsApp Icon', class: 'whatsapp-icon' %>
+            <%= link_to whatsapp_url(phone_number: contrato.cliente.telefone, message: "Olá, sou do suporte da Smart Service.%0AEstou entrando em contato referente ao serviço que você contratou: #{contrato.servico.nome}%0AAtt,%0ASmart Service - O próximo passo no gerenciamento de serviço."),
+                        style: 'margin-top: 10px;', target: '_blank', class: 'btn btn-primary' do %>
+              <%= image_tag asset_path('iconHome/whatsapp.png'), style: 'height: 32px; width: 32px;', alt: 'WhatsApp Icon', class: 'whatsapp-icon' %>
               Mensagem no WhatsApp cliente
             <% end %>
+
           </td>
           <td> <%= image_tag @contrato.servico.pix, style: 'max-width: 400px; max-height: 400px;' %></td>
         </tr>
