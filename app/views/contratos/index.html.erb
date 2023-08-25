@@ -108,6 +108,7 @@
           <th scope="col">Serviço</th>
           <th scope="col">Cliente</th>
           <th scope="col">Trabalhador</th>
+          <th scope="col">Status do contrato</th>
           <th scope="col">Visualizar</th>
         </tr>
         </thead>
@@ -118,6 +119,9 @@
             <td><%= contrato.servico.nome %></td>
             <td><%= contrato.cliente.nome_completo %></td>
             <td><%= contrato.servico.trabalhador.nome_completo %></td>
+            <td style="background-color: <%= contrato.status.downcase == 'concluido' ? 'green' : 'red' %>; color: seashell">
+              <%= contrato.status %>
+            </td>
             <td>
               <%= button_to "Detalhes do contrato", contrato, class: "white-text btn btn-primary btn-sm" %>
             </td>

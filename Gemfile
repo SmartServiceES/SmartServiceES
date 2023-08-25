@@ -5,14 +5,16 @@ ruby "3.1.1"
 gem 'factory_bot_rails'
 
 gem 'ransack'
-
+gem 'test_helper'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", "= 7.0.2.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 gem 'devise'
-gem 'qrcode_pix_ruby'
+gem 'letter_opener'
+gem 'mailgun-ruby'
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 

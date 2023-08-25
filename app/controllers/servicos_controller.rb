@@ -31,15 +31,7 @@ class ServicosController < ApplicationController
 
     @trabalhador.servicos << @servico
 
-    respond_to do |format|
-      if @servico.save
-        format.html { redirect_to servico_url(@servico), notice: "Servico was successfully created." }
-        format.json { render :show, status: :created, location: @servico }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @servico.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_create(@servico)
   end
 
   # PATCH/PUT /servicos/1 or /servicos/1.json
@@ -82,5 +74,16 @@ end
     # Only allow a list of trusted parameters through.
   def servico_params
     params.require(:servico).permit(:nome, :descricao, :valor, :categoria, :horario_inicio, :horario_termino, :trabalhador_id, :pix)
+  end
+  def respond_to_create(servico)
+    respond_to do |format|
+      if servico.save
+        format.html { redirect_to servico_url(servico), notice: "Servico was successfully created." }
+        format.json { render :show, status: :created, location: servico }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: servico.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end

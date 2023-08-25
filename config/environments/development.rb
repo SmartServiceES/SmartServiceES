@@ -41,9 +41,55 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.show_previews = true
+
+
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  # these options are only needed if you choose smtp delivery
+  # config.action_mailer.smtp_settings = {
+  #   :address        => 'smtp.gmail.com',
+  #   :port           => 587,
+  #   :domain         => 'example.com',
+  #   :authentication => 'plain',
+  #   :user_name      => '',
+  #   :password       => '',
+  #   :enable_starttls_auto => true
+  # }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "65.55.96.11",
+    :port                 => 587,
+    :enable_starttls_auto => true,
+    :user_name            => "",
+    :password             => "",
+    :domain               => 'outlook.com', # Ajuste o domínio para outlook.com
+    :authentication       => 'plain',
+    :read_timeout         => 30
+  }
+
+
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.office365.com",
+  #   port: 587,
+  #   domain: "outlook.com", # Substitua pelo seu domínio
+  #   authentication: :login,
+  #   user_name: "", # Substitua pelo seu endereço de email
+  #   password: "", # Substitua pela sua senha
+  #   enable_starttls_auto: true
+  # }
+
+
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: '',
+  #   domain: ''
+  # }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

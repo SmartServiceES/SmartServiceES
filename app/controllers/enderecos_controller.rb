@@ -22,16 +22,7 @@ class EnderecosController < ApplicationController
   # POST /enderecos or /enderecos.json
   def create
     @endereco = Endereco.new(endereco_params)
-
-    respond_to do |format|
-      if @endereco.save
-        format.html { redirect_to endereco_url(@endereco), notice: "Endereco was successfully created." }
-        format.json { render :show, status: :created, location: @endereco }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @endereco.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_create(@endereco)
   end
 
   # PATCH/PUT /enderecos/1 or /enderecos/1.json
@@ -66,5 +57,17 @@ class EnderecosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def endereco_params
       params.require(:endereco).permit(:nome_da_rua, :numero_da_casa, :cep, :bairro, :cidade, :complemento)
+    end
+
+    def respond_to_create(endereco)
+      respond_to do |format|
+        if endereco.save
+          format.html { redirect_to endereco_url(endereco), notice: "Endereco was successfully created." }
+          format.json { render :show, status: :created, location: endereco }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: endereco.errors, status: :unprocessable_entity }
+        end
+      end
     end
 end
