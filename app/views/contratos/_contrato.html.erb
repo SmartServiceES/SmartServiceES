@@ -26,11 +26,10 @@
           <td> <%= contrato.servico.horario_termino.strftime('%d/%m/%Y as %H:%M:%S') %></td>
           <td> <%= contrato.status %></td>
           <td>
-            <%= link_to 'Notificar trabalhador',
-                        "mailto:#{contrato.servico.trabalhador.email}" \
-                          "?subject=Smart%20Service%20-%20Atualização%20de%20Serviço" \
-                          "&body=Olá,%20#{contrato.servico.trabalhador.nome_completo}%0D%0A%0D%0AVocê%20tem%20atualizações%20no%20seu%20serviço:%20#{contrato.servico.nome}.%0D%0A%0D%0A- Cliente:%20*#{contrato.cliente.nome_completo}*%0D%0A- Valor%20do%20serviço:%20*#{contrato.servico.valor}*%0D%0A- Status%20atual:%20*#{contrato.status}*%0D%0A%0D%0AVisite%20a%20Smart%20Service%20para%20mais%20informações%0D%0A%0D%0AAtt,%0D%0ASmartService%20-%20O%20próximo%20passo%20no%20gerenciamento%20de%20serviço%0D%0A%0D%0A*Esse%20e-mail%20é%20automático,%20por%20favor%20não%20responda.",
+            <%= link_to 'Enviar E-mail para o Trabalhador',
+                        "mailto:#{contrato.servico.trabalhador.email}?subject=Smar%20Service%20-%20Atualização%20de%20Serviço&body=Olá,%20#{contrato.servico.trabalhador.nome_completo}%0A%0AVocê%20tem%20atualizações%20no%20seu%20serviço:%20#{contrato.servico.nome}.%0A%0A- Cliente:%20#{contrato.cliente.nome_completo}%0A- Valor%20do%20serviço:%20#{contrato.servico.valor}%0A- Contato%20do%20cliente:%20#{contrato.cliente.telefone}%0A- Status%20atual:%20#{contrato.status}%0A%0AVisite%20a%20smart%20service%20para%20mais%20informações%0A%0AAtt,%0ASmartService%20-%20O%20proximo%20passo%20no%20gerenciamento%20de%20serviço%0A*Esse%20email%20é%20automatico,%20por%20favor%20não%20responda",
                         class: 'btn btn-primary' %>
+
           </td>
           <td> <%= image_tag @contrato.servico.pix, style: 'max-width: 400px; max-height: 400px;' %></td>
         </tr>
