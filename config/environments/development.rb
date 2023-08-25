@@ -56,8 +56,8 @@ Rails.application.configure do
   #   :port           => 587,
   #   :domain         => 'example.com',
   #   :authentication => 'plain',
-  #   :user_name      => 'testerails4@gmail.com',
-  #   :password       => 'SenhaRails123',
+  #   :user_name      => '',
+  #   :password       => '',
   #   :enable_starttls_auto => true
   # }
 
@@ -66,8 +66,8 @@ Rails.application.configure do
     :address              => "65.55.96.11",
     :port                 => 587,
     :enable_starttls_auto => true,
-    :user_name            => "testerails42@outlook.com",
-    :password             => "senha123",
+    :user_name            => "",
+    :password             => "",
     :domain               => 'outlook.com', # Ajuste o domínio para outlook.com
     :authentication       => 'plain',
     :read_timeout         => 30
@@ -79,16 +79,16 @@ Rails.application.configure do
   #   port: 587,
   #   domain: "outlook.com", # Substitua pelo seu domínio
   #   authentication: :login,
-  #   user_name: "testerails42@outlook.com", # Substitua pelo seu endereço de email
-  #   password: "senha123", # Substitua pela sua senha
+  #   user_name: "", # Substitua pelo seu endereço de email
+  #   password: "", # Substitua pela sua senha
   #   enable_starttls_auto: true
   # }
 
 
   # config.action_mailer.delivery_method = :mailgun
   # config.action_mailer.mailgun_settings = {
-  #   api_key: 'c3943f32eaee171e506348de3e2fbab5-f0e50a42-32540aaa',
-  #   domain: 'sandbox2e45dd7a3b7d42af95817057080429bc.mailgun.org'
+  #   api_key: '',
+  #   domain: ''
   # }
 
   # Print deprecation notices to the Rails logger.
