@@ -42,7 +42,7 @@ gerenciamento%20de%20serviço%0A*Esse%20email%20é%20automático,%20por%20favor%
 
             <%= link_to whatsapp_url(phone_number: contrato.cliente.telefone, message: 'SUA_MENSAGEM'), style: 'margin-top: 10px;',target: '_blank', class: 'btn btn-primary' do %>
               <%= image_tag asset_path('iconHome/whatsapp.png'), style: 'height: 32px; weight: 32px;', alt: 'WhatsApp Icon', class: 'whatsapp-icon' %>
-              Mensagem no WhatsApp do cliente
+              Mensagem no WhatsApp cliente
             <% end %>
           </td>
           <td> <%= image_tag @contrato.servico.pix, style: 'max-width: 400px; max-height: 400px;' %></td>
