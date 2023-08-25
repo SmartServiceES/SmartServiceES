@@ -42,15 +42,7 @@ class ClientesController < ApplicationController
     @cliente = Cliente.new(cliente_params)
     @cliente.endereco = Endereco.new(cliente_params[:endereco_attributes])
 
-    respond_to do |format|
-      if @cliente.save
-        format.html { redirect_to cliente_url(@cliente), notice: "Cliente was successfully created." }
-        format.json { render :show, status: :created, location: @cliente }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cliente.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_create(@cliente)
   end
 
   # PATCH/PUT /clientes/1 or /clientes/1.json
@@ -88,5 +80,16 @@ class ClientesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def cliente_params
     params.require(:cliente).permit(:nome_completo, :data_nascimento, :cpf, :email, :senha, :telefone, {:endereco_attributes => [:nome_da_rua, :numero_da_casa, :cep, :bairro, :cidade, :complemento]})
+  end
+  def respond_to_create(cliente)
+    respond_to do |format|
+      if cliente.save
+        format.html { redirect_to cliente_url(cliente), notice: "Cliente was successfully created." }
+        format.json { render :show, status: :created, location: cliente }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: cliente.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end
